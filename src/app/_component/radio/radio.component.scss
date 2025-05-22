@@ -1,0 +1,23 @@
+
+.form-check-label {
+  font-size: var(--primary-font-size) !important;
+}
+
+.custom-label {
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  background: white;
+  padding: 0 5px;
+  font-size: var(--secondary-font-size);
+  margin-top: -0.125rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .mtl-radio {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+}
+

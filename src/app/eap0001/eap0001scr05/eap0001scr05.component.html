@@ -1,0 +1,430 @@
+<!--ข้อมูลแบบประกัน-->
+<div class="card mt-4">
+    <div class="card-body card-overflow">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#plaInfo"></div>
+        <span class="card-label">ข้อมูลแบบประกัน</span>
+        <div class="collapse show" id="plaInfo">
+            <div class="row mt-3">
+                <div class="col-sm-6 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">Package</label>
+                </div>
+                <div class="col-sm-6 floating-label">
+                    <lk-plan></lk-plan>
+                    <label class="required" for="appDate">แบบประกัน</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">เบี้ยประกันภัยส่วนที่เป็นเงินออมเพิ่มเติม</label>
+                </div>
+                <div class="col-sm-9 d-flex align-items-center flex-wrap gap-3">
+                    <app-checkbox id="digitalF2f" name="digitalF2f" label="Murder Benefit (อบ.1/อบ.2)"
+                        value="Y"></app-checkbox>
+                    <app-checkbox id="digitalF2f" name="digitalF2f" label="มีส่วนลด" value="Y"></app-checkbox>
+                    <app-checkbox id="digitalF2f" name="digitalF2f" label="มีเงินปันผล/เงินคืน"
+                        value="Y"></app-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ระยะเวลาเอาประกัน(ปี)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">จำนวนเงินเอาประกัน(บาท)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ระยะเวลาชำระเบี้ย(ปี)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">จำนวนเบี้ยประกัน(บาท)</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่สัญญาเริ่มต้น</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d2="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่สัญญาสิ้นสุด</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">Campaign</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="channel">เพิ่มเบี้ยอาชีพ</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--ข้อมูลสินเชื่อ-->
+<div class="card mt-4">
+    <div class="card-body card-overflow">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#loanInfo"></div>
+        <span class="card-label">ข้อมูลสินเชื่อ</span>
+        <div class="collapse show" id="loanInfo">
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">สถาบันที่ให้สินเชื่อ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label class="required" for="appDate">อัตราดอกเบี้ย</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label class="required" for="appDate">ชื่อผู้กู้ (นิติบุคคล/บุคคลธรรมดา)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <lk-loan-contract></lk-loan-contract>
+                    <label class="required" for="appDate">CIS ID.ของผู้กู้</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">เลขที่จดทะเบียน</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่จดทะเบียน</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">รหัส Opp ID.</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">เลขที่ใบสมัครสินเชื่อ</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ข้อมูลรายละเอียดสินเชื่อ -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#loanDetailInfo"></div>
+        <span class="card-label">ข้อมูลรายละเอียดสินเชื่อ</span>
+        <div class="collapse show" id="loanDetailInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มรายละเอียดสินเชื่อ</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>ประเภทสินเชื่อ</th>
+                                <th>ประเภทวงเงินสินเชื่อ</th>
+                                <th>วงเงินสินเชื่อ/ยอดค้างชำระ</th>
+                                <th>ระยะเวลาผ่อนชำระ(ปี)</th>
+                                <th>สัญญาเงินกู้เลขที่</th>
+                                <th>วันเริ่มสัญญาเงินกู้</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="8">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ข้อมูลผู้กู้ร่วมที่ขอเอาประกันภัย -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#reqInsureInfo"></div>
+        <span class="card-label">ข้อมูลผู้กู้ร่วมที่ขอเอาประกันภัย</span>
+        <div class="collapse show" id="reqInsureInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มผู้กู้ร่วมที่ขอเอาประกันภัย</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>ชื่อ - นามสกุล</th>
+                                <th>เลขที่ใบคำขอเอาประกันภัย</th>
+                                <th>ระยะเวลาเอาประกันภัย(ปี)</th>
+                                <th>จำนวนเงินเอาประกันภัย(บาท)</th>
+                                <th>ความสัมพันธ์ผู้กู้ร่วม</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="7">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- สัญญาเพิ่มเติม -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#riderInfo"></div>
+        <span class="card-label">สัญญาเพิ่มเติม</span>
+        <div class="collapse show" id="riderInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มสัญญาเพิ่มเติม</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>สัญญาเพิ่มเติม</th>
+                                <th>เอาประกัน(ปี)</th>
+                                <th>ชำระเบี้ย(ปี)</th>
+                                <th>ชำระเบี้ย(ปี)</th>
+                                <th>FD</th>
+                                <th>เงินเอาประกัน(บาท)</th>
+                                <th>เบี้ยประกัน(บาท)</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="9">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- การลงทุน แบบ ก. สำหรับเบี้ยประกันภัยหลัก -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#investAInfo"></div>
+        <span class="card-label">การลงทุน แบบ ก. สำหรับเบี้ยประกันภัยหลัก</span>
+        <div class="collapse show" id="investAInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มการลงทุน แบบ ก.</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>รหัสกองทุน</th>
+                                <th>ชื่อกองทุน</th>
+                                <th>ชื่อ Package</th>
+                                <th>เปอร์เซ็นต์การลงทุน %</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="6">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- การลงทุน แบบ ข. สำหรับเบี้ยประกันภัยส่วนเงินออมเพิ่มเติม -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#investBInfo"></div>
+        <span class="card-label">การลงทุน แบบ ข. สำหรับเบี้ยประกันภัยส่วนเงินออมเพิ่มเติม</span>
+        <div class="collapse show" id="investBInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มการลงทุน แบบ ข.</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>รหัสกองทุน</th>
+                                <th>ชื่อกองทุน</th>
+                                <th>ชื่อ Package</th>
+                                <th>เปอร์เซ็นต์การลงทุน %</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="6">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ข้อมูลบัญชี -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#accountInfo"></div>
+        <span class="card-label">ข้อมูลบัญชี</span>
+        <div class="collapse show" id="accountInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มบัญชี</button>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>ประเภท</th>
+                                <th>รายละเอียดบัญชี</th>
+                                <th>โอนผลประโยชน์</th>
+                                <th>ตัดชำระ</th>
+                                <th>DDPO</th>
+                                <th>ATM</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="8">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- การชำระเบี้ย -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#payInfo"></div>
+        <span class="card-label">การชำระเบี้ย</span>
+        <div class="collapse show" id="payInfo">
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">งวดการชำระเบี้ย</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">ค่าเบี้ยที่ต้องชำระ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">ยอดเงินชำระพร้อมใบคำขอ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d2="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่รับเงิน</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">ชำระโดย</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">เลขที่การรับเงิน</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">รหัสบริษัท</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">รายละเอียดเพิ่มเติม</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">ผู้ชำระเบี้ยปีแรก</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">ชื่อ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control">
+                    <label for="appNo">สกุล</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input class="form-control" value="APP" readonly>
+                    <label for="appNo">Centralize Billing</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

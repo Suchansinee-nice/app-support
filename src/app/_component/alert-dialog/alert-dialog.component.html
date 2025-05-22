@@ -1,0 +1,35 @@
+<div class="modal-body">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+    style="position: absolute;
+    right: 10px;
+    top: 10px;"
+    (click)="activeModal.dismiss()"></button>
+    <div class="d-grid text-center" *ngIf="alertType=='Success'">
+        <div><i class="bi bi-check-circle-fill" style="font-size: 3.275rem;color:#198754;"></i></div>
+        <span>{{ message }}</span>
+            <button type="button" class="btn btn-success mt-4" (click)="activeModal.close(true)">
+                {{ btnOkText }}
+            </button>
+    </div>
+    <div class="d-grid text-center" *ngIf="alertType=='Fail'">
+        <div><i class="bi bi-x-circle-fill" style="font-size: 3.275rem;color:#dc3545;"></i></div>
+        <span style="color: #dc3545;font-size: 18px;">Error</span>
+        <span style="font-size: 14px;">{{ message }}</span>
+            <button type="button" class="btn btn-danger mt-4" (click)="activeModal.close(true)">
+                {{ btnOkText }}
+            </button>
+    </div>
+    <div class="text-center" *ngIf="alertType=='Confirm'">
+        <div><i class="bi bi-exclamation-circle" style="font-size: 3.275rem;color:#ffc107;"></i></div>
+        <p style="font-size: 14px;">{{ message }}</p>
+        <div class="d-flex justify-content-center gap-2 mt-4">
+            <button type="button" class="btn btn-primary" (click)="activeModal.close(true)">
+                {{ btnOkText }}
+            </button>
+            <button type="button" class="btn btn-danger" (click)="activeModal.close(true)">
+                {{ btnCancelText }}
+            </button>
+        </div>
+    </div>
+
+</div>

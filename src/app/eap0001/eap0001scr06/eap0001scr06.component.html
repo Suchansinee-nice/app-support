@@ -1,0 +1,39 @@
+<div class="card mt-4">
+    <div class="card-body">
+        <span class="card-label">บันทึกผู้รับประโยชน์(กรณีนิติบุคคลให้บันทึกโดยไม่ต้องระบุคำนำหน้าชื่อ)</span>
+        <div id="benefitInfo">
+            <div class="row">
+                <div class="col-sm-12 d-flex align-items-center justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-save">เพิ่มผู้รับประโยชน์</button>
+                    <button type="button" class="btn btn-outline-save">ไม่ระบุสัดส่วน</button>
+                    <app-checkbox id="chk4" name="chk4" label="สัดส่วนไม่ครบ 100 %" value="Y"></app-checkbox>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12">
+                    <table #table class="w-100 dt-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>ลำดับ</th>
+                                <th>อ้างอิง</th>
+                                <th>ชื่อ-นามสกุล</th>
+                                <th>อายุ(ปี)</th>
+                                <th>ความสัมพันธ์</th>
+                                <th>รหัสบัตร</th>
+                                <th>ที่อยู่</th>
+                                <th>ร้อยละ</th>
+                                <th>แก้ไข</th>
+                                <th>ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="data-not-found" colspan="10">ไม่พบข้อมูล</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
