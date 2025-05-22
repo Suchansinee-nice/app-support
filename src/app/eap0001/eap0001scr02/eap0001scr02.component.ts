@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-eap0001scr02',
-  templateUrl: './eap0001scr02.component.html',
-  styleUrl: './eap0001scr02.component.scss'
+    selector: 'app-eap0001scr02',
+    templateUrl: './eap0001scr02.component.html',
+    styleUrl: './eap0001scr02.component.scss',
+    standalone: false
 })
 export class Eap0001scr02Component {
   selectedOption: string = "Y";

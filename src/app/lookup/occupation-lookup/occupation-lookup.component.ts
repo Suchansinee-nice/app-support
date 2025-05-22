@@ -6,13 +6,14 @@ import { DatatableComponent } from '../../_component/datatable/datatable.compone
 import { EappComponent } from '../../eapp.component';
 
 @Component({
-  selector: 'lk-occupation',
-  templateUrl: './occupation-lookup.component.html',
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => OccupationLookupComponent),
-    multi: true
-  }]
+    selector: 'lk-occupation',
+    templateUrl: './occupation-lookup.component.html',
+    providers: [{
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => OccupationLookupComponent),
+            multi: true
+        }],
+    standalone: false
 })
 export class OccupationLookupComponent extends EappComponent implements ControlValueAccessor {
 

@@ -2,7 +2,8 @@ import { Directive, HostListener, ElementRef, Renderer2, Input, EventEmitter, Ou
 import { NgModel } from '@angular/forms';
 
 @Directive({
-    selector: '[dateMask]'
+    selector: '[dateMask]',
+    standalone: false
 })
 export class DateMaskDirective {
     @Output() dateMaskChange = new EventEmitter<string>();

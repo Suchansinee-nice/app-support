@@ -7,9 +7,10 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { AlertDialogService } from '../../_component/alert-dialog/alert-dialog.service';
 
 @Component({
-  selector: 'app-eap0001scr01',
-  templateUrl: './eap0001scr01.component.html',
-  styleUrl: './eap0001scr01.component.scss'
+    selector: 'app-eap0001scr01',
+    templateUrl: './eap0001scr01.component.html',
+    styleUrl: './eap0001scr01.component.scss',
+    standalone: false
 })
 export class Eap0001scr01Component extends EappComponent {
   cars = [

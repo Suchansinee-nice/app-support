@@ -9,9 +9,10 @@ export enum AlertType {
 
 
 @Component({
-  selector: 'app-alert-dialog',
-  templateUrl: './alert-dialog.component.html',
-  styleUrls: ['./alert-dialog.component.css']
+    selector: 'app-alert-dialog',
+    templateUrl: './alert-dialog.component.html',
+    styleUrls: ['./alert-dialog.component.css'],
+    standalone: false
 })
 export class AlertDialogComponent {
   title: string = 'Alert';

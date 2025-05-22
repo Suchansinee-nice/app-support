@@ -15,7 +15,8 @@ interface ColumnSort {
             useExisting: forwardRef(() => DatatableDirective),
             multi: true
         }
-    ]
+    ],
+    standalone: false
 })
 export class DatatableDirective implements ControlValueAccessor {
     @Input() id!: string

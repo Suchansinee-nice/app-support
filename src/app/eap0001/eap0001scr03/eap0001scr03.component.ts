@@ -5,9 +5,10 @@ import { OccupationLookupComponent } from '../../lookup/occupation-lookup/occupa
 import { OccupationService } from '../../lookup/occupation-lookup/occupation.service';
 
 @Component({
-  selector: 'app-eap0001scr03',
-  templateUrl: './eap0001scr03.component.html',
-  styleUrl: './eap0001scr03.component.scss'
+    selector: 'app-eap0001scr03',
+    templateUrl: './eap0001scr03.component.html',
+    styleUrl: './eap0001scr03.component.scss',
+    standalone: false
 })
 export class Eap0001scr03Component {
   custType = "Y"

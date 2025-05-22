@@ -1,9 +1,10 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-datatable',
-  templateUrl: './datatable.component.html',
-  styleUrl: './datatable.component.scss'
+    selector: 'app-datatable',
+    templateUrl: './datatable.component.html',
+    styleUrl: './datatable.component.scss',
+    standalone: false
 })
 export class DatatableComponent {
   pages = [{code:10,name:"10"}, {code:50,name:"50"}, {code:100,name:"100"}];

@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Eap0001scr01Component } from './eap0001/eap0001scr01/eap0001scr01.component';
-import { NgLabelTemplateDirective, NgOptionTemplateDirective, NgSelectComponent, NgSelectModule } from '@ng-select/ng-select';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDatepickerI18n, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThaiDateParserFormatter } from './thai-datepicker-formatter';
 import { ThaiDatepickerI18n } from './thai-datepicker-i18n';
@@ -32,6 +31,8 @@ import { Eap0001scr08Component } from './eap0001/eap0001scr08/eap0001scr08.compo
 import { Eap0001scr09Component } from './eap0001/eap0001scr09/eap0001scr09.component';
 import { Eap0003scr01Component } from './eap0003/eap0003scr01/eap0003scr01.component';
 import { DatatableDirective } from './datatable.directive';
+import { NgSelectModule, NgLabelTemplateDirective, NgOptionTemplateDirective, NgSelectComponent } from '@ng-select/ng-select';
+import { DatatableComponent } from './_component/datatable/datatable.component';
 
 @NgModule({
   declarations: [

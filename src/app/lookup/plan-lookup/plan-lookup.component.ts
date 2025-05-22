@@ -3,8 +3,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OccupationService } from '../occupation-lookup/occupation.service';
 
 @Component({
-  selector: 'lk-plan',
-  templateUrl: './plan-lookup.component.html'
+    selector: 'lk-plan',
+    templateUrl: './plan-lookup.component.html',
+    standalone: false
 })
 export class PlanLookupComponent {
   constructor(private modalService: NgbModal

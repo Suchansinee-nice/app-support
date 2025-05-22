@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-eap0001scr07',
-  templateUrl: './eap0001scr07.component.html',
-  styleUrl: './eap0001scr07.component.css'
+    selector: 'app-eap0001scr07',
+    templateUrl: './eap0001scr07.component.html',
+    styleUrl: './eap0001scr07.component.css',
+    standalone: false
 })
 export class Eap0001scr07Component {
   data = [

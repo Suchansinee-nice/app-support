@@ -3,20 +3,21 @@ import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-main-menu',
-  templateUrl: './main-menu.component.html',
-  styleUrl: './main-menu.component.scss',
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('100ms', style({ opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('100ms', style({ opacity: 0 }))
-      ])
-    ])
-  ]
+    selector: 'app-main-menu',
+    templateUrl: './main-menu.component.html',
+    styleUrl: './main-menu.component.scss',
+    animations: [
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate('100ms', style({ opacity: 1 }))
+            ]),
+            transition(':leave', [
+                animate('100ms', style({ opacity: 0 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 export class MainMenuComponent {
   isSidebarHidden = false;
