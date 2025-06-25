@@ -12,7 +12,7 @@
   --primary-925-color: #420923;
   --primary-950-color: #2a0c18;
   --primary-975-color: #170b0f;
-  --coolGrey-25-color: #FCFCFC;
+  --coolGrey-25-color: #fcfcfc;
   --coolGrey-50-color: #f7f7f8;
   --coolGrey-100-color: #ebecf0;
   --coolGrey-200-color: #dbdde3;
@@ -31,12 +31,12 @@
 }
 
 @font-face {
-  font-family: 'Kanit';
-  src: url('assets/fonts/kanit/Kanit-Regular.ttf');
+  font-family: "Kanit";
+  src: url("assets/fonts/kanit/Kanit-Regular.ttf");
 }
 
 body {
-  font-family: 'Kanit' !important;
+  font-family: "Kanit" !important;
 }
 
 .mtl-container {
@@ -70,7 +70,7 @@ ngb-datepicker {
 
   .ngb-dp-header,
   .ngb-dp-weekday {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 
   .ngb-dp-weekday {
@@ -89,7 +89,7 @@ ngb-datepicker {
   }
 
   [ng-reflect-selected="true"] {
-    color: #FFFFFF;
+    color: #ffffff;
     background-color: var(--primary-500-color) !important;
   }
 }
@@ -108,10 +108,10 @@ a {
 
 label.required {
   &::after {
-      content: "*";
-      color: red;
-      font-size: var(--primary-font-size);
-      margin-left: 5px;
+    content: "*";
+    color: red;
+    font-size: var(--primary-font-size);
+    margin-left: 5px;
   }
 }
 
@@ -126,17 +126,16 @@ label.required {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DBDBDB;
+  background: #dbdbdb;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4d3d3
+  background: #d4d3d3;
 }
 /* End scrollbar */
 
 input[type="checkbox"] {
-
   &:checked {
     background-color: var(--primary-500-color);
     border: 1px solid var(--primary-500-color);
@@ -156,14 +155,14 @@ input[type="checkbox"] {
   transform: translateY(-50%);
 
   &::after {
-    content: '\f2e8';
+    content: "\f2e8";
     font-family: bootstrap-icons !important;
     color: var(--primary-500-color);
   }
 
   &.collapsed {
     &::after {
-      content: '\f4fc';
+      content: "\f4fc";
     }
   }
 }
@@ -174,7 +173,7 @@ input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-input[type=radio] {
+input[type="radio"] {
   &:checked {
     background-color: var(--primary-500-color);
     border-color: var(--primary-500-color);

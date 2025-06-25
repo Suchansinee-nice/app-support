@@ -8,7 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Eap0001scr01Component } from './eap0001/eap0001scr01/eap0001scr01.component';
-import { NgbDateAdapter, NgbDateParserFormatter, NgbDatepickerI18n, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDateAdapter,
+  NgbDateParserFormatter,
+  NgbDatepickerI18n,
+  NgbModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { ThaiDateParserFormatter } from './thai-datepicker-formatter';
 import { ThaiDatepickerI18n } from './thai-datepicker-i18n';
 import { DatePickerAdapter } from './datepicker-adapter';
@@ -31,8 +36,15 @@ import { Eap0001scr08Component } from './eap0001/eap0001scr08/eap0001scr08.compo
 import { Eap0001scr09Component } from './eap0001/eap0001scr09/eap0001scr09.component';
 import { Eap0003scr01Component } from './eap0003/eap0003scr01/eap0003scr01.component';
 import { DatatableDirective } from './datatable.directive';
-import { NgSelectModule, NgLabelTemplateDirective, NgOptionTemplateDirective, NgSelectComponent } from '@ng-select/ng-select';
+import {
+  NgSelectModule,
+  NgLabelTemplateDirective,
+  NgOptionTemplateDirective,
+  NgSelectComponent,
+} from '@ng-select/ng-select';
 import { DatatableComponent } from './_component/datatable/datatable.component';
+import { OsrAppsupportComponent } from './osr-appsupport/osr-appsupport.component';
+import { RulesDetailComponent } from './osr-appsupport/rules-detail/rules-detail.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +71,9 @@ import { DatatableComponent } from './_component/datatable/datatable.component';
     Eap0001scr07Component,
     Eap0001scr08Component,
     Eap0001scr09Component,
-    Eap0003scr01Component
+    Eap0003scr01Component,
+    OsrAppsupportComponent,
+    RulesDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,13 +85,13 @@ import { DatatableComponent } from './_component/datatable/datatable.component';
     NgOptionTemplateDirective,
     NgSelectComponent,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: NgbDatepickerI18n, useClass: ThaiDatepickerI18n },
     { provide: NgbDateParserFormatter, useClass: ThaiDateParserFormatter },
-    { provide: NgbDateAdapter, useClass: DatePickerAdapter }
+    { provide: NgbDateAdapter, useClass: DatePickerAdapter },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
