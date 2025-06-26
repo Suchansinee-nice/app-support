@@ -1,5 +1,8 @@
-import { Component, Signal } from '@angular/core';
-import { RequestSearchTransaction } from './models/search-transaction';
+import { Component, signal, Signal, WritableSignal } from '@angular/core';
+import {
+  RequestSearchTransaction,
+  ResponseSearchTransaction,
+} from './models/search-transaction';
 import { SearchTransactionService } from './services/search-transaction.service';
 import { SearchTransactionStore } from './stores/search-transaction-store';
 
@@ -8,17 +11,32 @@ import { SearchTransactionStore } from './stores/search-transaction-store';
   standalone: false,
   templateUrl: './osr-appsupport.component.html',
   styleUrl: './osr-appsupport.component.css',
-  providers: [SearchTransactionService],
+  providers: [SearchTransactionService, SearchTransactionStore],
 })
 export class OsrAppsupportComponent {
   // private services
-  private readonly searchTransactionService!: SearchTransactionService;
+  private readonly searchTransactionService: SearchTransactionService;
 
   //private stores
-  private readonly searchTxnStore!: SearchTransactionStore;
+  private readonly searchTxnStore: SearchTransactionStore;
 
   // public signal for use in this template
-  request!: Signal<RequestSearchTransaction | null>;
+  // request!: Signal<RequestSearchTransaction | null>;
+  response: WritableSignal<ResponseSearchTransaction> =
+    signal<ResponseSearchTransaction>({});
+
+  // requestFormState = signal<RequestSearchTransaction>({
+  //   refNo: '',
+  //   transactionId: '',
+  //   createdDate: new Date(),
+  // });
+
+  request: WritableSignal<RequestSearchTransaction> =
+    signal<RequestSearchTransaction>({
+      refNo: '',
+      transactionId: '',
+      createdDate: new Date(),
+    });
 
   //constructor declare public variable for use in template
   constructor(
@@ -29,7 +47,22 @@ export class OsrAppsupportComponent {
     this.searchTxnStore = searchTxnStore;
   }
 
-  clear() {}
+  updateField(field: keyof RequestSearchTransaction, value: any): void {
+    this.request.update((state) => ({ ...state, [field]: value }));
+  }
+
+  clear() {
+    console.log('clear');
+    this.request.set({
+      refNo: null,
+      transactionId: null,
+      createdDate: null,
+    });
+    this.response.set({
+      response: null,
+    });
+    this.searchTxnStore.clear();
+  }
 
   search() {}
 

@@ -1,7 +1,7 @@
 export interface RequestSearchTransaction {
-  refNo: string;
-  transactionID: string;
-  createdDate: Date;
+  refNo?: string | null;
+  transactionId?: string | null;
+  createdDate?: Date | null;
 }
 
 export interface Results {
@@ -26,5 +26,5 @@ export interface Rules {
 }
 
 export interface ResponseSearchTransaction {
-  response: Results[];
+  response?: Results[] | null;
 }

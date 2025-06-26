@@ -2,6 +2,7 @@
   <label class="fw-bold fs-6">OSR App Support</label>
 </div>
 <hr />
+{{ request() | json }}
 <div class="container">
   <div class="card mt-5">
     <div class="card-body">
@@ -10,6 +11,8 @@
         <div class="col floating-label">
           <label for="refNo">Ref No.</label>
           <input
+            [ngModel]="request().refNo"
+            (ngModelChange)="updateField('refNo', $event)"
             type="text"
             class="form-control"
             id="refNo"
@@ -19,6 +22,8 @@
         <div class="col floating-label">
           <label for="transactionId">Transaction Id</label>
           <input
+            [ngModel]="request().transactionId"
+            (ngModelChange)="updateField('transactionId', $event)"
             type="text"
             class="form-control"
             id="transactionId"
@@ -29,6 +34,8 @@
           <label for="createdDate">Created Date</label>
           <div class="input-group">
             <input
+              [ngModel]="request().createdDate"
+              (ngModelChange)="updateField('createdDate', $event)"
               class="form-control"
               name="dp"
               ngbDatepicker
@@ -45,14 +52,16 @@
       </div>
       <div class="row mt-3 justify-content-center">
         <div class="col-6 d-flex justify-content-center gap-2">
-          <button type="button" class="btn btn-secondary">Clear</button>
+          <button type="button" class="btn btn-secondary" (click)="clear()">
+            Clear
+          </button>
           <button type="button" class="btn btn-save">Search</button>
         </div>
       </div>
     </div>
   </div>
 
-  <ng-template [ngIf]="mockData">
+  <ng-template [ngIf]="request">
     <div class="row mt-5">
       <div class="col-sm-12">
         <table class="w-100 dt-table">

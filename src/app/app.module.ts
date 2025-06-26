@@ -45,6 +45,7 @@ import {
 import { DatatableComponent } from './_component/datatable/datatable.component';
 import { OsrAppsupportComponent } from './osr-appsupport/osr-appsupport.component';
 import { RulesDetailComponent } from './osr-appsupport/rules-detail/rules-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { RulesDetailComponent } from './osr-appsupport/rules-detail/rules-detail
     NgSelectComponent,
     NgbModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: NgbDatepickerI18n, useClass: ThaiDatepickerI18n },
