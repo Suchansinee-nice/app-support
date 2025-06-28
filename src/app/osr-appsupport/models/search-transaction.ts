@@ -2,6 +2,7 @@ export interface RequestSearchTransaction {
   refNo?: string | null;
   transactionId?: string | null;
   createdDate?: Date | null;
+  date?: string | null;
 }
 
 export interface Results {

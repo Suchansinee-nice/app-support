@@ -2,7 +2,7 @@
   <label class="fw-bold fs-6">OSR App Support</label>
 </div>
 <hr />
-{{ request() | json }}
+<!-- {{ request() | json }} -->
 <div class="container">
   <div class="card mt-5">
     <div class="card-body">
@@ -38,13 +38,14 @@
               (ngModelChange)="updateField('createdDate', $event)"
               class="form-control"
               name="dp"
+              id="datepicker"
               ngbDatepicker
-              #d2="ngbDatepicker"
+              #d="ngbDatepicker"
               placeholder="dd/mm/yyyy"
             />
             <button
               class="btn btn-outline-secondary bi bi-calendar3"
-              (click)="d2.toggle()"
+              (click)="d.toggle()"
               type="button"
             ></button>
           </div>
@@ -55,13 +56,15 @@
           <button type="button" class="btn btn-secondary" (click)="clear()">
             Clear
           </button>
-          <button type="button" class="btn btn-save">Search</button>
+          <button type="button" class="btn btn-save" (click)="search()">
+            Search
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <ng-template [ngIf]="request">
+  <ng-template [ngIf]="response().response">
     <div class="row mt-5">
       <div class="col-sm-12">
         <table class="w-100 dt-table">
@@ -70,14 +73,16 @@
               <th>No.</th>
               <th>Transaction ID</th>
               <th>Created Date</th>
+              <th>Total time usage</th>
               <th>Detail</th>
             </tr>
           </thead>
-          <tbody *ngFor="let item of mockData; index as i">
+          <tbody *ngFor="let item of response().response; index as i">
             <tr>
               <td class="text-center">{{ i + 1 }}</td>
               <td class="text-center">{{ item.transactionId }}</td>
               <td class="text-center">{{ item.createdDate }}</td>
+              <td class="text-center">{{ item.timeUsage }}</td>
               <td class="log-button">
                 <button
                   type="button"
@@ -103,6 +108,7 @@
               <th>No.</th>
               <th>Transaction ID</th>
               <th>Created Date</th>
+              <th>Total time usage</th>
               <th>Detail</th>
             </tr>
           </thead>

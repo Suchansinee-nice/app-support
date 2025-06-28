@@ -20,8 +20,9 @@ export class SearchTransactionService {
   getSearchTxnInfo(
     requestSearchTxn: RequestSearchTransaction
   ): Observable<ResponseSearchTransaction> {
-    return this.http.get<ResponseSearchTransaction>(
-      `${this.url}/osr/api/searchTransaction`
+    return this.http.post<ResponseSearchTransaction>(
+      `${this.url}/api/searchTransaction`,
+      requestSearchTxn
     );
   }
 }
