@@ -9,19 +9,14 @@ import { SearchTransactionStore } from './stores/search-transaction-store';
 import { DatePipe } from '@angular/common';
 import { DateTime } from 'luxon';
 import { Router } from '@angular/router';
-import { ThaiDateParserFormatter } from '../thai-datepicker-formatter';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-osr-appsupport',
   standalone: false,
   templateUrl: './osr-appsupport.component.html',
   styleUrl: './osr-appsupport.component.css',
-  providers: [
-    SearchTransactionService,
-    SearchTransactionStore,
-    DatePipe,
-    ThaiDateParserFormatter,
-  ],
+  providers: [SearchTransactionService, SearchTransactionStore, DatePipe],
 })
 export class OsrAppsupportComponent {
   // private services
@@ -44,7 +39,7 @@ export class OsrAppsupportComponent {
       createdDate: null,
     });
 
-  createdDate: Date = new Date();
+  createdDate: string = '';
 
   //constructor declare public variable for use in template
   constructor(
@@ -70,10 +65,14 @@ export class OsrAppsupportComponent {
       this.request.set({
         refNo: refNo,
         transactionId: transactionId,
+        createdDate: date ? new Date(date) : null,
       });
 
       if (date) {
-        this.createdDate = new Date(date);
+        const parsed = new Date(date);
+        if (!isNaN(parsed.getTime())) {
+          this.createdDate = new Date().toISOString().split('T')[0];
+        }
       }
     }
   }
@@ -83,7 +82,7 @@ export class OsrAppsupportComponent {
   }
 
   clear() {
-    this.createdDate = new Date();
+    this.createdDate = '';
     this.request.set({
       refNo: null,
       transactionId: null,
@@ -183,8 +182,8 @@ export class OsrAppsupportComponent {
     }
 
     if (request?.createdDate) {
-      this.createdDate = new Date(request.createdDate);
-      sessionStorage.setItem('createdDate', this.createdDate.toISOString());
+      this.createdDate = request.createdDate.toISOString();
+      sessionStorage.setItem('createdDate', this.createdDate);
     }
 
     this.router.navigate(['/rules-detail'], {
