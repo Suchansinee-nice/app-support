@@ -71,7 +71,7 @@ export class OsrAppsupportComponent {
       if (date) {
         const parsed = new Date(date);
         if (!isNaN(parsed.getTime())) {
-          this.createdDate = new Date().toISOString().split('T')[0];
+          this.createdDate = parsed.toISOString().split('T')[0];
         }
       }
     }
@@ -121,30 +121,29 @@ export class OsrAppsupportComponent {
     if (
       this.request().refNo &&
       this.request().transactionId &&
-      this.request().createdDate
+      this.request().createdDate &&
+      this.createdDate
     ) {
-      const dateStr = this.request().createdDate?.toString();
+      const dateStr = this.createdDate?.toString(); //use create date, if use request.createDate format is Mon 23 June is incorrect to split
       const parts = dateStr!.split('-');
       const year = parts[0];
       const month = parts[1];
       const day = parts[2];
-
       const date = `${day}-${month}-${year}`; //dd-MM-yyyy not use datepipe
 
       const createdDate = `${year}-${month}-${day}`;
-      this.request().createdDate = new Date(createdDate);
+      this.request().createdDate = new Date(createdDate); //keep
 
       // const date = this.convertDateToString(this.request().createdDate!);
       // console.log(date); //dd-MM-yyyy use datepipe
 
       const dateString = this.parseDDMMYYYY(date!); //convert to Date
-
       const dateFormatted = this.datePipe.transform(
         dateString?.toJSDate(),
         'dd-MMM-yy'
       ); //format to 25-Jun-25
 
-      this.request().date = dateFormatted?.toUpperCase();
+      this.request().date = dateFormatted?.toUpperCase(); //for query
       console.log('newFormat2', this.request().date);
       this.searchTxnStore.setRequestSearchTxn(this.request());
 
@@ -184,6 +183,7 @@ export class OsrAppsupportComponent {
     if (request?.createdDate) {
       this.createdDate = request.createdDate.toISOString();
       sessionStorage.setItem('createdDate', this.createdDate);
+      console.log('sss', this.createdDate);
     }
 
     this.router.navigate(['/rules-detail'], {
