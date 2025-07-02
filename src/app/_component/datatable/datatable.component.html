@@ -1,0 +1,13 @@
+<div class="row pagination" *ngIf="data && data.length > 0">
+    <div class="col-sm-6">
+        <div class="d-flex align-items-center">
+            <span class="me-3">found {{tempData ? tempData.length : 0}} record(s)</span>
+            <!-- <ng-select [items]="pages" id="code" bindLabel="name" bindValue="code" [clearable]="false"
+                style="width: 60px;" [(ngModel)]="records" (change)="recordPerPage($event.code)" >
+            </ng-select> -->
+        </div>
+    </div>
+    <div class="col-sm-6 d-flex justify-content-end gap-1" *ngIf="pageCount">
+        <button type="button" class="btn page" [class.active]="selectedPage == i" *ngFor="let item of [].constructor(pageCount);let i = index" (click)="selected(i)">{{i+1}}</button>
+    </div>
+</div>

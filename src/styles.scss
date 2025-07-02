@@ -1,0 +1,190 @@
+:root {
+  --primary-50-color: #ffeff5;
+  --primary-100-color: #ffd5e6;
+  --primary-200-color: #ffb0d1;
+  --primary-300-color: #ff83b7;
+  --primary-400-color: #f74f97;
+  --primary-500-color: #d10073;
+  --primary-600-color: #b5005f;
+  --primary-700-color: #97004d;
+  --primary-800-color: #79003d;
+  --primary-900-color: #5c002f;
+  --primary-925-color: #420923;
+  --primary-950-color: #2a0c18;
+  --primary-975-color: #170b0f;
+  --coolGrey-25-color: #fcfcfc;
+  --coolGrey-50-color: #f7f7f8;
+  --coolGrey-100-color: #ebecf0;
+  --coolGrey-200-color: #dbdde3;
+  --coolGrey-300-color: #c6c9d1;
+  --coolGrey-400-color: #aeb2bb;
+  --coolGrey-500-color: #9296a0;
+  --coolGrey-600-color: #797d86;
+  --coolGrey-700-color: #63666e;
+  --coolGrey-800-color: #4f5258;
+  --coolGrey-900-color: #3e4044;
+  --coolGrey-925-color: #2e3033;
+  --coolGrey-950-color: #212224;
+  --coolGrey-975-color: #161617;
+  --primary-font-size: 12px;
+  --secondary-font-size: 10px;
+}
+
+@font-face {
+  font-family: "Kanit";
+  src: url("assets/fonts/kanit/Kanit-Regular.ttf");
+}
+
+body {
+  font-family: "Kanit" !important;
+}
+
+.mtl-container {
+  font-size: var(--primary-font-size);
+  position: relative;
+  background-color: var(--coolGrey-25-color) !important;
+}
+
+.card {
+  border: 1px solid var(--primary-200-color) !important;
+}
+
+.card-label {
+  position: absolute;
+  top: -15px;
+  left: 5px;
+  // padding: 5px 10px;
+  font-size: var(--primary-font-size);
+  border-radius: 5px;
+  background: white;
+  z-index: 1002;
+  font-weight: bold;
+  color: var(--primary-500-color);
+
+  padding: 0 5px;
+  transform: translateY(5%);
+}
+
+ngb-datepicker {
+  z-index: 1003 !important;
+
+  .ngb-dp-header,
+  .ngb-dp-weekday {
+    background-color: #ffffff;
+  }
+
+  .ngb-dp-weekday {
+    font-style: normal;
+    color: var(--coolGrey-500-color);
+  }
+
+  [class^="ngb-dp-navigation"] {
+    color: var(--primary-400-color);
+  }
+
+  [ngbDatepickerDayView]:hover:not(.bg-primary) {
+    color: var(--primary-500-color);
+    background-color: var(--primary-50-color);
+    outline: none;
+  }
+
+  [ng-reflect-selected="true"] {
+    color: #ffffff;
+    background-color: var(--primary-500-color) !important;
+  }
+}
+
+.nav-link {
+  color: var(--coolGrey-700-color) !important;
+  &.active {
+    background-color: var(--primary-500-color) !important;
+    color: #fff !important;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+label.required {
+  &::after {
+    content: "*";
+    color: red;
+    font-size: var(--primary-font-size);
+    margin-left: 5px;
+  }
+}
+
+/* Begin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d3d3;
+}
+/* End scrollbar */
+
+input[type="checkbox"] {
+  &:checked {
+    background-color: var(--primary-500-color);
+    border: 1px solid var(--primary-500-color);
+  }
+
+  &:focus {
+    border: 1px solid var(--primary-500-color);
+    box-shadow: 0 0 15px var(--primary-100-color) !important;
+  }
+}
+
+.card .card-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  &::after {
+    content: "\f2e8";
+    font-family: bootstrap-icons !important;
+    color: var(--primary-500-color);
+  }
+
+  &.collapsed {
+    &::after {
+      content: "\f4fc";
+    }
+  }
+}
+
+.card-overflow {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+input[type="radio"] {
+  &:checked {
+    background-color: var(--primary-500-color);
+    border-color: var(--primary-500-color);
+
+    &:disabled {
+      background-color: var(--coolGrey-400-color);
+      border-color: var(--coolGrey-400-color);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 15px var(--primary-100-color) !important;
+  }
+}

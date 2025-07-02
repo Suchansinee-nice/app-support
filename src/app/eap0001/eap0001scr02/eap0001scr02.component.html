@@ -1,0 +1,159 @@
+<!-- ข้อมูลใบคำขอ  -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#appInfo"></div>
+        <span class="card-label">ข้อมูลใบคำขอ</span>
+        <div class="collapse show" id="appInfo">
+            <div class="row mt-3">
+                <div class="col-sm-9 floating-label">
+                    <ng-select
+                        [items]="[{code:'2-02-05-0083',name:'[2-02-05-0083]ใบคำขอ PA รายปีรายเดือน'}, {code:'2-02-05-083',name:'[2-02-05-3414]ใบคำขอเอาประกันชีวิตสำหรับกรมธรรม์ประกันชีวิต แบบคุ้มครองสินเชื่อ ชำระเบี้ยประกันภัยครั้งเดียว ประเภทสามัญ ชนิดมีคำถามสุขภาพอย่างละเอียด'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">รหัสใบคำขอ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ใบคำขอเลขที่</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่ลงนาม</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">รหัสตัวแทน</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d2="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันที่รับเงิน</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'2-02-05-0083',name:'xxx'}, {code:'2-02-05-083',name:'xxx'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">ผู้ชำระเบี้ย</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Yes'},{code:'N',name:'No'}]" name="bancTMO" label="Banc TMO"
+                        [(ngModel)]="selectedOption"></app-radio>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Yes'},{code:'N',name:'No'}]" name="preUw"
+                        label="Pre-UW"></app-radio>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">Refer Agent No.</label>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Paper'},{code:'N',name:'E-Policy'}]" name="preUw"
+                        label="ประเภทเล่มกรมธรรม์"></app-radio>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Yes'},{code:'N',name:'No'}]" name="preUw"
+                        label="E-Document"></app-radio>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio
+                        [options]="[{code:'Y',name:'By Hand'},{code:'N',name:'ไปรษณีย์ลงทะเบียน'},{code:'X',name:'By Sales'}]"
+                        name="preUw" label="การจัดส่งกรมธรรม์"></app-radio>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Yes'},{code:'N',name:'No'}]" name="preUw"
+                        label="E-KYC"></app-radio>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'Yes'},{code:'N',name:'No'}]" name="preUw"
+                        label="PDPA"></app-radio>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 d-flex align-items-center">
+                    <app-checkbox id="digitalF2f" name="digitalF2f" label="Digital F2F" value="Y"
+                        [(ngModel)]="chk"></app-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- เอกสารประกอบ -->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#docInfo"></div>
+        <span class="card-label">เอกสารประกอบ</span>
+        <div class="collapse show" id="docInfo">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="dt-table w-100">
+                        <thead>
+                            <tr class="table-header">
+                                <th width="10%">ลำดับ</th>
+                                <th width="60%">เอกสาร</th>
+                                <th width="20%"><input class="form-check-input" type="checkbox"> ได้รับ</th>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="padding: unset;">
+                                    <div style="height: 190px; width: 100%; overflow: auto;">
+                                        <table class="w-100">
+                                            <tbody>
+                                                <tr *ngFor="let item of data;let i = index">
+                                                    <td width="10%" class="center">{{i+1}}</td>
+                                                    <td width="60%">{{item.doc}}</td>
+                                                    <td width="20%" class="center"><input class="form-check-input"
+                                                            type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ยืนยันข้อมูลเพิ่มเติม -->
+<div class="card mt-4">
+    <div class="card-body">
+        <span class="card-label">ยืนยันข้อมูลเพิ่มเติม</span>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-checkbox id="chk1" name="chk1" label="ผู้เอาประกัน, พยาน, ผู้ชำระเบี้ย ลงนามเอกสารครบถ้วน" value="Y"></app-checkbox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-checkbox id="chk2" name="chk2" label="เอกสารใบเสนอขายครบถ้วน" value="Y"></app-checkbox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-checkbox id="chk3" name="chk3" label="เอกสารยินยอมหักบัญชีธนาคาร, บัตรเครดิต และการรับผลประโยชน์ครบถ้วน" value="Y"></app-checkbox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-checkbox id="chk4" name="chk4" label="มีเอกสาร APP แต่ไม่สมบูรณ์" value="Y"></app-checkbox>
+            </div>
+        </div>
+    </div>
+</div>

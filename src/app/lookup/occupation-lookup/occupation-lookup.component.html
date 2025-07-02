@@ -1,0 +1,109 @@
+<div class="input-group">
+  <input class="form-control lk-code" [(ngModel)]="modelValue" (keyup.enter)="getByCode()" (blur)="getByCode()" />
+  <button class="btn btn-outline-secondary bi bi-search" (click)="open(content)"></button>
+  <input class="form-control" [value]="description" readonly />
+</div>
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: var(--primary-500-color);color: #fff;">
+    <h6 class="modal-title">ค้นหาอาชีพ / Search occupation Information</h6>
+    <button type="button" class="btn-close fs-7" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="card mt-2">
+      <div class="card-body">
+        <span class="card-label">เงื่อนไนการค้นหา</span>
+        <div class="row mt-3">
+          <div class="col-sm-3 floating-label">
+            <input type="text" id="lastName" class="form-control">
+            <label for="lastName">รหัส</label>
+          </div>
+          <div class="col-sm-3 floating-label">
+            <input type="text" id="lastName" class="form-control">
+            <label for="lastName">กลุ่มอาชีพ</label>
+          </div>
+          <div class="col-sm-3 floating-label">
+            <input type="text" id="lastName" class="form-control">
+            <label for="lastName">อาชีพใน AS400</label>
+          </div>
+          <div class="col-sm-3 floating-label">
+            <input type="text" id="lastName" class="form-control">
+            <label for="lastName">อาชีพ</label>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-sm-12 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-save" (click)="search()">ค้นหา</button>
+            <button type="button" class="btn btn-secondary">เคลียร์</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm-12">
+          <table #table class="w-100 dt-table">
+              <thead>
+                  <tr class="table-header">
+                      <th>รหัส</th>
+                      <th>อาชีพ</th>
+                      <th>กลุ่มอาชีพ</th>
+                      <th>อาชีพใน AS400</th>
+                      <th>ชั้นอาชีพ</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of data">
+                      <td>{{item.code}}</td>
+                      <td>{{item.desc}}</td>
+                      <td>{{item.group}}</td>
+                      <td>{{item.as400}}</td>
+                      <td>{{item.level}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="mt-2">
+              <!-- <app-datatable #datatable (paging)="datatabletFilter($event)"></app-datatable> -->
+          </div>
+      </div>
+  </div>
+
+  </div>
+</ng-template>
+
+
+<!-- <div class="modal-header" style="background-color: var(--primary-500-color);color: #fff;">
+    <h6 class="modal-title">ค้นหาอาชีพ / Search occupation Information</h6>
+    <button type="button" class="btn-close fs-7" (click)="activeModal.close()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row mt-3">
+      <div class="col-sm-3 floating-label">
+        <input type="text" id="lastName" class="form-control">
+        <label for="lastName">รหัส</label>
+      </div>
+      <div class="col-sm-3 floating-label">
+        <input type="text" id="lastName" class="form-control">
+        <label for="lastName">กลุ่มอาชีพ</label>
+      </div>
+      <div class="col-sm-3 floating-label">
+        <input type="text" id="lastName" class="form-control">
+        <label for="lastName">อาชีพใน AS400</label>
+      </div>
+      <div class="col-sm-3 floating-label">
+        <input type="text" id="lastName" class="form-control">
+        <label for="lastName">อาชีพ</label>
+      </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-save">ค้นหา</button>
+            <button type="button" class="btn btn-secondary">เคลียร์</button>            
+        </div>
+    </div>
+    
+  </div> -->
+<!-- <div class="modal-footer">
+    <button class="btn btn-save" (click)="save()">บันทึก</button>
+    <button class="btn btn-secondary" (click)="close()">ยกเลิก</button>
+  </div> -->

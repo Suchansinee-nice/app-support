@@ -1,0 +1,66 @@
+.floating-label {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  font-size: var(--secondary-font-size);
+  color: var(--coolGrey-975-color);
+  
+  .floating-label-flex {
+    display: flex;
+  }
+}
+
+.floating-label label:not(.form-check-label) {
+  position: absolute;
+  margin-left: 5px;
+  margin-top: -0.125rem;
+  top: 0;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 5px;
+  transition: 0.3s;
+  z-index: 1001;
+  font-weight: bold;
+}
+
+.floating-label input:focus+label,
+.floating-label input:not(:placeholder-shown)+label {
+  top: 0;
+  color: var(--coolGrey-975-color);
+}
+
+@media (max-width: 768px) {
+  .floating-label {
+    max-width: 100%;
+    margin-top: 1rem;
+
+    @at-root .row {
+      margin-top: calc(-1* var(--bs-gutter-y));
+    }
+
+    .floating-label-flex {
+      display: block;
+    }
+
+  }
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+  font-size: var(--primary-font-size) !important;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.475rem .75rem !important;
+
+  &:focus {
+    border: 1px solid var(--coolGrey-200-color) ;
+    box-shadow: 0 0 0 .25rem var(--primary-100-color) ;
+  }
+
+  &:read-only {
+    background-color: var(--coolGrey-50-color);
+  }
+}
+
+input.lk-code {
+  max-width: 90px;
+}
