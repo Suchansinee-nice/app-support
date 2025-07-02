@@ -34,20 +34,20 @@
           <label for="createdDate">Created Date</label>
           <div class="input-group">
             <input
-              [ngModel]="request().createdDate"
+              [ngModel]="createdDate"
+              type="date"
               (ngModelChange)="updateField('createdDate', $event)"
               class="form-control"
               name="dp"
               id="datepicker"
               ngbDatepicker
               #d="ngbDatepicker"
-              placeholder="dd/mm/yyyy"
             />
-            <button
+            <!-- <button
               class="btn btn-outline-secondary bi bi-calendar3"
               (click)="d.toggle()"
               type="button"
-            ></button>
+            ></button> -->
           </div>
         </div>
       </div>
@@ -81,14 +81,12 @@
             <tr>
               <td class="text-center">{{ i + 1 }}</td>
               <td class="text-center">{{ item.transactionId }}</td>
-              <td class="text-center">{{ item.createdDate }}</td>
+              <td class="text-center">
+                {{ item.createdDate | date : "dd/MM/yyyy" }}
+              </td>
               <td class="text-center">{{ item.timeUsage }}</td>
               <td class="log-button">
-                <button
-                  type="button"
-                  class="btn btn-save"
-                  [routerLink]="['/rules-detail']"
-                >
+                <button type="button" class="btn btn-save" (click)="route()">
                   Log
                 </button>
               </td>

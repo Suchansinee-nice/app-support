@@ -8,13 +8,20 @@ import { SearchTransactionService } from './services/search-transaction.service'
 import { SearchTransactionStore } from './stores/search-transaction-store';
 import { DatePipe } from '@angular/common';
 import { DateTime } from 'luxon';
+import { Router } from '@angular/router';
+import { ThaiDateParserFormatter } from '../thai-datepicker-formatter';
 
 @Component({
   selector: 'app-osr-appsupport',
   standalone: false,
   templateUrl: './osr-appsupport.component.html',
   styleUrl: './osr-appsupport.component.css',
-  providers: [SearchTransactionService, SearchTransactionStore, DatePipe],
+  providers: [
+    SearchTransactionService,
+    SearchTransactionStore,
+    DatePipe,
+    ThaiDateParserFormatter,
+  ],
 })
 export class OsrAppsupportComponent {
   // private services
@@ -37,14 +44,38 @@ export class OsrAppsupportComponent {
       createdDate: null,
     });
 
+  createdDate: Date = new Date();
+
   //constructor declare public variable for use in template
   constructor(
     searchTransactionService: SearchTransactionService,
     searchTxnStore: SearchTransactionStore,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router: Router
   ) {
     this.searchTransactionService = searchTransactionService;
     this.searchTxnStore = searchTxnStore;
+  }
+
+  ngOnInit() {
+    const responseData = sessionStorage.getItem('responseData');
+    const refNo = sessionStorage.getItem('refNo');
+    const transactionId = sessionStorage.getItem('transactionId');
+    const date = sessionStorage.getItem('createdDate');
+
+    if (responseData) {
+      sessionStorage.clear();
+      const jsonObject = JSON.parse(responseData);
+      this.response.set(jsonObject);
+      this.request.set({
+        refNo: refNo,
+        transactionId: transactionId,
+      });
+
+      if (date) {
+        this.createdDate = new Date(date);
+      }
+    }
   }
 
   updateField(field: keyof RequestSearchTransaction, value: any): void {
@@ -52,7 +83,7 @@ export class OsrAppsupportComponent {
   }
 
   clear() {
-    console.log('clear');
+    this.createdDate = new Date();
     this.request.set({
       refNo: null,
       transactionId: null,
@@ -94,27 +125,27 @@ export class OsrAppsupportComponent {
       this.request().createdDate
     ) {
       const dateStr = this.request().createdDate?.toString();
-      const parts = dateStr!.split('/');
-      const day = parts[0];
+      const parts = dateStr!.split('-');
+      const year = parts[0];
       const month = parts[1];
-      const year = parts[2];
+      const day = parts[2];
 
-      const newFormat1 = `${day}-${month}-${year}`; //dd-MM-yyyy not use datepipe
+      const date = `${day}-${month}-${year}`; //dd-MM-yyyy not use datepipe
 
-      const newFormat2 = `${year}-${month}-${day}`;
-      this.request().createdDate = new Date(newFormat2);
+      const createdDate = `${year}-${month}-${day}`;
+      this.request().createdDate = new Date(createdDate);
 
       // const date = this.convertDateToString(this.request().createdDate!);
       // console.log(date); //dd-MM-yyyy use datepipe
 
-      const parsed = this.parseDDMMYYYY(newFormat1!); //convert to Date
+      const dateString = this.parseDDMMYYYY(date!); //convert to Date
 
-      const formatted = this.datePipe.transform(
-        parsed?.toJSDate(),
+      const dateFormatted = this.datePipe.transform(
+        dateString?.toJSDate(),
         'dd-MMM-yy'
       ); //format to 25-Jun-25
 
-      this.request().date = formatted?.toUpperCase();
+      this.request().date = dateFormatted?.toUpperCase();
       console.log('newFormat2', this.request().date);
       this.searchTxnStore.setRequestSearchTxn(this.request());
 
@@ -127,6 +158,7 @@ export class OsrAppsupportComponent {
             this.response.set({
               response: res.response, //set repsonse
             });
+
             console.log('response', this.response()?.response);
           } else {
             if (!this.response().response) {
@@ -135,5 +167,28 @@ export class OsrAppsupportComponent {
           }
         });
     }
+  }
+
+  route() {
+    const response = this.response();
+    sessionStorage.setItem('responseData', JSON.stringify(response));
+
+    const request = this.request?.(); // Use optional chaining
+    const refNo = request?.refNo?.toString();
+    const transactionId = request?.transactionId?.toString();
+
+    if (refNo && transactionId) {
+      sessionStorage.setItem('refNo', refNo);
+      sessionStorage.setItem('transactionId', transactionId);
+    }
+
+    if (request?.createdDate) {
+      this.createdDate = new Date(request.createdDate);
+      sessionStorage.setItem('createdDate', this.createdDate.toISOString());
+    }
+
+    this.router.navigate(['/rules-detail'], {
+      state: { user: { id: 1, name: 'John' } },
+    });
   }
 }
