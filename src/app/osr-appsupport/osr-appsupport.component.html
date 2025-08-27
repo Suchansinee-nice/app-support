@@ -84,7 +84,11 @@
               </td>
               <td class="text-center">{{ item.timeUsage }}</td>
               <td class="log-button">
-                <button type="button" class="btn btn-save" (click)="route()">
+                <button
+                  type="button"
+                  class="btn btn-save"
+                  (click)="route(item)"
+                >
                   Log
                 </button>
               </td>

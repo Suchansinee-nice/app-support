@@ -167,7 +167,7 @@ export class OsrAppsupportComponent {
     }
   }
 
-  route() {
+  route(item: Results) {
     const response = this.response();
     sessionStorage.setItem('responseData', JSON.stringify(response));
 
@@ -187,7 +187,7 @@ export class OsrAppsupportComponent {
     }
 
     this.router.navigate(['/rules-detail'], {
-      state: { user: { id: 1, name: 'John' } },
+      state: item,
     });
   }
 }
