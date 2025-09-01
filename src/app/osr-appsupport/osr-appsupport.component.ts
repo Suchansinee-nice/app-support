@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 import { DateTime } from 'luxon';
 import { Router } from '@angular/router';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { RulesDetailStore } from './stores/rule-detail-store';
 
 @Component({
   selector: 'app-osr-appsupport',
@@ -46,7 +47,8 @@ export class OsrAppsupportComponent {
     searchTransactionService: SearchTransactionService,
     searchTxnStore: SearchTransactionStore,
     private datePipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private rulesDetailStore: RulesDetailStore
   ) {
     this.searchTransactionService = searchTransactionService;
     this.searchTxnStore = searchTxnStore;
@@ -186,8 +188,7 @@ export class OsrAppsupportComponent {
       console.log('sss', this.createdDate);
     }
 
-    this.router.navigate(['/rules-detail'], {
-      state: item,
-    });
+    this.rulesDetailStore.setItem(item);
+    this.router.navigate(['/rules-detail']);
   }
 }

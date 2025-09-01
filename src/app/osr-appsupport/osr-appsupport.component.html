@@ -17,6 +17,7 @@
             class="form-control"
             id="refNo"
             placeholder="ref No."
+            required
           />
         </div>
         <div class="col floating-label">
@@ -28,6 +29,7 @@
             class="form-control"
             id="transactionId"
             placeholder="transaction Id"
+            required
           />
         </div>
         <div class="col floating-label">
@@ -40,6 +42,7 @@
               class="form-control"
               name="dp"
               id="datepicker"
+              required
             />
             <!-- <button
               class="btn btn-outline-secondary bi bi-calendar3"
@@ -72,7 +75,9 @@
               <th>Transaction ID</th>
               <th>Created Date</th>
               <th>Total time usage</th>
-              <th>Detail</th>
+              <th>Collector time usage</th>
+              <th>Service time usage</th>
+              <th>Rule Detail</th>
             </tr>
           </thead>
           <tbody *ngFor="let item of response().response; index as i">
@@ -83,15 +88,22 @@
                 {{ item.createdDate | date : "dd/MM/yyyy" }}
               </td>
               <td class="text-center">{{ item.timeUsage }}</td>
-              <td class="log-button">
-                <button
-                  type="button"
-                  class="btn btn-save"
-                  (click)="route(item)"
-                >
-                  Log
-                </button>
-              </td>
+              <td class="text-center">{{ item.collectorUsage }}</td>
+              <td class="text-center">{{ item.serviceUsage }}</td>
+              <ng-container>
+                <td class="log-button" *ngIf="item.rules.length > 0">
+                  <button
+                    type="button"
+                    class="btn btn-save"
+                    (click)="route(item)"
+                  >
+                    Log
+                  </button>
+                </td>
+                <td class="log-button" *ngIf="item.rules.length === 0">
+                  <strong>No Rules</strong>
+                </td>
+              </ng-container>
             </tr>
           </tbody>
         </table>

@@ -2,3 +2,62 @@
   <label class="fw-bold fs-6">OSR App Support</label>
 </div>
 <hr />
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-body">
+      <div>
+        <label
+          ><strong>Transaction ID : </strong>{{ items?.transactionId }}</label
+        >
+      </div>
+      <div>
+        <label
+          ><strong>Created Date : </strong>
+          {{ items?.createdDate | date : "dd/MM/yyyy" }}</label
+        >
+      </div>
+      <div>
+        <label><strong>Total time :</strong> {{ items?.timeUsage }}</label>
+      </div>
+      <div>
+        <label
+          ><strong> Collector time :</strong>{{ items?.collectorUsage }}</label
+        >
+      </div>
+      <div>
+        <label
+          ><strong>Service time : </strong> {{ items?.serviceUsage }}</label
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template [ngIf]="true">
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>MessageTH</th>
+            <th>MessageCode</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items?.rules; index as i">
+          <tr>
+            <td class="text-center">{{ i + 1 }}</td>
+            <ng-container *ngFor="let part of ruleName; index as j">
+              <td class="text-center" *ngIf="i === j">
+                {{ part }}
+              </td>
+            </ng-container>
+            <td class="text-center">{{ item.messageTH }}</td>
+            <td class="text-center">{{ item.code }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>

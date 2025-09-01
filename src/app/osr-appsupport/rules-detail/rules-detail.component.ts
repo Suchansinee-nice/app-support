@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { SearchTransactionService } from '../services/search-transaction.service';
 import { SearchTransactionStore } from '../stores/search-transaction-store';
+import { Results } from '../models/search-transaction';
+import { Router } from '@angular/router';
+import { RulesDetailStore } from '../stores/rule-detail-store';
 
 @Component({
   selector: 'app-rules-detail',
@@ -16,12 +19,35 @@ export class RulesDetailComponent {
   //private stores
   private readonly searchTxnStore: SearchTransactionStore;
 
+  items: Results | null;
+  ruleName: string[] = [];
+
   //constructor declare public variable for use in template
   constructor(
     searchTransactionService: SearchTransactionService,
-    searchTxnStore: SearchTransactionStore
+    searchTxnStore: SearchTransactionStore,
+    private rulesDetailStore: RulesDetailStore
   ) {
     this.searchTransactionService = searchTransactionService;
     this.searchTxnStore = searchTxnStore;
+    this.items = this.rulesDetailStore.getItem();
+    console.log('item from store: ', this.items);
+  }
+
+  ngOnInit(): void {
+    this.getRuleName();
+  }
+
+  getRuleName() {
+    if (!this.items || !this.items.rules) return;
+
+    this.ruleName = []; // reset
+
+    for (let i = 0; i < this.items?.rules.length; i++) {
+      const parts = this.items.rules[i].messageTH.substring(0, 7);
+      this.ruleName.push(parts);
+    }
+
+    console.log('Rule Name Array:', this.ruleName);
   }
 }
