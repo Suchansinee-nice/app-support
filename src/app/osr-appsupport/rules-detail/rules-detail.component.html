@@ -17,6 +17,12 @@
         >
       </div>
       <div>
+        <label
+          ><strong>Created Time : </strong>
+          {{ items?.dateTime | date : "HH:mm:ss" }}</label
+        >
+      </div>
+      <div>
         <label><strong>Total time :</strong> {{ items?.timeUsage }}</label>
       </div>
       <div>

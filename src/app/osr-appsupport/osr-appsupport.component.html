@@ -74,6 +74,7 @@
               <th>No.</th>
               <th>Transaction ID</th>
               <th>Created Date</th>
+              <th>Created Time</th>
               <th>Total time usage</th>
               <th>Collector time usage</th>
               <th>Service time usage</th>
@@ -86,6 +87,9 @@
               <td class="text-center">{{ item.transactionId }}</td>
               <td class="text-center">
                 {{ item.createdDate | date : "dd/MM/yyyy" }}
+              </td>
+              <td class="text-center">
+                {{ item.dateTime | date : "HH:mm:ss" }}
               </td>
               <td class="text-center">{{ item.timeUsage }}</td>
               <td class="text-center">{{ item.collectorUsage }}</td>

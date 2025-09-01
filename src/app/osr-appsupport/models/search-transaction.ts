@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 export interface RequestSearchTransaction {
   refNo?: string | null;
   transactionId?: string | null;
@@ -14,6 +16,7 @@ export interface Results {
   serviceUsage: string;
   serviceStatus: string;
   rules: Rules[];
+  dateTime: Date;
 }
 
 export interface Rules {
