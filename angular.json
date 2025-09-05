@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lof4nb": {
+    "osr-appsupport": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,14 +23,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/lof4nb",
+            "outputPath": "dist/osr-appsupport/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [{
+            "assets": [
+              {
                 "glob": "**/*",
                 "input": "public"
               },
@@ -52,7 +51,8 @@
           },
           "configurations": {
             "production": {
-              "budgets": [{
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "500kB",
                   "maximumError": "1MB"
@@ -64,6 +64,16 @@
                 }
               ],
               "outputHashing": "all"
+            },
+            "uat": {
+              "optimization": true,
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -77,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "lof4nb:build:production"
+              "buildTarget": "osr-appsupport:build:production"
             },
             "development": {
-              "buildTarget": "lof4nb:build:development"
+              "buildTarget": "osr-appsupport:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,18 +101,15 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [{
-              "glob": "**/*",
-              "input": "public"
-            }],
-            "styles": [
-              "src/styles.css"
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
             ],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
