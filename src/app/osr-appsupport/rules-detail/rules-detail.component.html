@@ -40,6 +40,11 @@
 </div>
 
 <ng-template [ngIf]="true">
+  <div class="row mt-5"></div>
+  <div>
+    <label class="fw-bold fs-6">Rules</label>
+  </div>
+  <hr />
   <div class="row mt-5">
     <div class="col-sm-12">
       <table class="w-100 dt-table">
@@ -67,7 +72,67 @@
     </div>
   </div>
   <div class="row mt-5"></div>
-  <div class="text-center">
-    <button type="button" class="btn btn-save" (click)="goHome()">Back</button>
+</ng-template>
+
+<ng-template [ngIf]="items?.documents?.length !== 0">
+  <div>
+    <label class="fw-bold fs-6">Documents</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>Desciption</th>
+            <th>Type</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items?.documents; index as i">
+          <tr>
+            <td class="text-center">{{ i + 1 }}</td>
+            <td class="text-center">{{ item.rule }}</td>
+            <td class="text-center">{{ item.descTH }}</td>
+            <td class="text-center">{{ item.type }}</td>
+            <td class="text-center">{{ item.code }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </ng-template>
+
+<ng-template [ngIf]="items?.documents?.length === 0">
+  <div>
+    <label class="fw-bold fs-6">Documents</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>Desciption</th>
+            <th>Type</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="data-not-found" colspan="15">Not Found Data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+<div class="row mt-5"></div>
+<div class="text-center">
+  <button type="button" class="btn btn-save" (click)="goHome()">Back</button>
+</div>
