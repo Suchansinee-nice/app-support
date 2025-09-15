@@ -26,7 +26,8 @@ export class RulesDetailComponent {
   constructor(
     searchTransactionService: SearchTransactionService,
     searchTxnStore: SearchTransactionStore,
-    private rulesDetailStore: RulesDetailStore
+    private rulesDetailStore: RulesDetailStore,
+    private router: Router
   ) {
     this.searchTransactionService = searchTransactionService;
     this.searchTxnStore = searchTxnStore;
@@ -49,5 +50,9 @@ export class RulesDetailComponent {
     }
 
     console.log('Rule Name Array:', this.ruleName);
+  }
+
+  goHome() {
+    this.router.navigate(['/osr-appsupport']);
   }
 }

@@ -3,5 +3,5 @@ export const environment = {
   authenMethod: 'legacy',
   layout: 'normal', // normal , integrated
   policyInfoLayout: 1,
-  apiUrl: 'https://uat-osr-rule.muangthai.co.th', // Development API URL
+  apiUrl: 'http://localhost:8080', // Development API URL
 };
