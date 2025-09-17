@@ -25,6 +25,7 @@ export class OsrAppsupportComponent {
 
   //private stores
   private readonly searchTxnStore: SearchTransactionStore;
+  showError: boolean = false;
 
   // public signal for use in this template
   // request!: Signal<RequestSearchTransaction | null>;
@@ -83,6 +84,7 @@ export class OsrAppsupportComponent {
   }
 
   updateField(field: keyof RequestSearchTransaction, value: any): void {
+    this.showError = false;
     this.request.update((state) => ({ ...state, [field]: value }));
   }
 
@@ -130,6 +132,7 @@ export class OsrAppsupportComponent {
       this.request().createdDate &&
       this.createdDate
     ) {
+      this.showError = false;
       const dateStr = this.createdDate?.toString(); //use create date, if use request.createDate format is Mon 23 June is incorrect to split
       const parts = dateStr!.split('-');
       const year = parts[0];
@@ -170,6 +173,9 @@ export class OsrAppsupportComponent {
             }
           }
         });
+    } else {
+      this.showError = true;
+      return;
     }
   }
 
