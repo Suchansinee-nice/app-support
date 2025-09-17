@@ -5,6 +5,7 @@ export interface RequestSearchTransaction {
   transactionId?: string | null;
   createdDate?: Date | null;
   date?: string | null;
+  idCard?: string | null;
 }
 
 export interface Results {
@@ -18,6 +19,8 @@ export interface Results {
   rules: Rules[];
   documents: Documents[];
   dateTime: Date;
+  channelCode: string;
+  section: string;
 }
 
 export interface Rules {

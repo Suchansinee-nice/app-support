@@ -38,6 +38,7 @@ export class OsrAppsupportComponent {
       refNo: '',
       transactionId: '',
       createdDate: null,
+      idCard: '',
     });
 
   createdDate: string = '';
@@ -59,6 +60,7 @@ export class OsrAppsupportComponent {
     const refNo = sessionStorage.getItem('refNo');
     const transactionId = sessionStorage.getItem('transactionId');
     const date = sessionStorage.getItem('createdDate');
+    const idCard = sessionStorage.getItem('idCard');
 
     if (responseData) {
       sessionStorage.clear();
@@ -68,6 +70,7 @@ export class OsrAppsupportComponent {
         refNo: refNo,
         transactionId: transactionId,
         createdDate: date ? new Date(date) : null,
+        idCard: idCard,
       });
 
       if (date) {
@@ -89,6 +92,7 @@ export class OsrAppsupportComponent {
       refNo: null,
       transactionId: null,
       createdDate: null,
+      idCard: null,
     });
     this.response.set({
       response: [],
@@ -121,8 +125,8 @@ export class OsrAppsupportComponent {
 
   search() {
     if (
-      this.request().refNo &&
-      this.request().transactionId &&
+      // this.request().refNo &&
+      // this.request().transactionId &&
       this.request().createdDate &&
       this.createdDate
     ) {
@@ -176,10 +180,18 @@ export class OsrAppsupportComponent {
     const request = this.request?.(); // Use optional chaining
     const refNo = request?.refNo?.toString();
     const transactionId = request?.transactionId?.toString();
+    const idCard = request?.idCard?.toString();
 
-    if (refNo && transactionId) {
+    if (refNo) {
       sessionStorage.setItem('refNo', refNo);
+    }
+
+    if (transactionId) {
       sessionStorage.setItem('transactionId', transactionId);
+    }
+
+    if (idCard) {
+      sessionStorage.setItem('idCard', idCard);
     }
 
     if (request?.createdDate) {

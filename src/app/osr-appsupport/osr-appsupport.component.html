@@ -33,6 +33,18 @@
           />
         </div>
         <div class="col floating-label">
+          <label for="idCard">Id Card</label>
+          <input
+            [ngModel]="request().idCard"
+            (ngModelChange)="updateField('idCard', $event)"
+            type="text"
+            class="form-control"
+            id="idCard"
+            placeholder="Id Card"
+            required
+          />
+        </div>
+        <div class="col floating-label">
           <label for="createdDate">Created Date</label>
           <div class="input-group">
             <input
@@ -72,6 +84,8 @@
           <thead>
             <tr class="table-header">
               <th>No.</th>
+              <th>ChannelCode</th>
+              <th>Section</th>
               <th>Transaction ID</th>
               <th>Created Date</th>
               <th>Created Time</th>
@@ -84,6 +98,8 @@
           <tbody *ngFor="let item of response().response; index as i">
             <tr>
               <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ item.channelCode }}</td>
+              <td class="text-center">{{ item.section }}</td>
               <td class="text-center">{{ item.transactionId }}</td>
               <td class="text-center">
                 {{ item.createdDate | date : "dd/MM/yyyy" }}
@@ -122,6 +138,8 @@
           <thead>
             <tr class="table-header">
               <th>No.</th>
+              <th>ChannelCode</th>
+              <th>Section</th>
               <th>Transaction ID</th>
               <th>Created Date</th>
               <th>Created Time</th>
