@@ -84,11 +84,15 @@ export class OsrAppsupportComponent {
   }
 
   updateField(field: keyof RequestSearchTransaction, value: any): void {
-    this.showError = false;
+    if (field == 'createdDate') {
+      this.showError = false;
+    }
+
     this.request.update((state) => ({ ...state, [field]: value }));
   }
 
   clear() {
+    this.showError = false;
     this.createdDate = '';
     this.request.set({
       refNo: null,
@@ -165,7 +169,6 @@ export class OsrAppsupportComponent {
             this.response.set({
               response: res.response, //set repsonse
             });
-
             console.log('response', this.response()?.response);
           } else {
             if (!this.response().response) {
