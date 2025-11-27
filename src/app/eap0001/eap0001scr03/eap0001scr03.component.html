@@ -1,0 +1,401 @@
+<!--ข้อมูลบุคคล-->
+<div class="card mt-4">
+    <div class="card-body card-overflow">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#custInfo"></div>
+        <span class="card-label">ข้อมูลบุคคล</span>
+        <div class="collapse show" id="custInfo">
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">คำนำหน้า</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ชื่อ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">นามสกุล</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">Name</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">Surename</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">เลขที่บัตร</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <button type="button" class="btn btn-success">ลูกค้าเก่า</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">ประเภทบัตร</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">สถานที่ออกบัตร</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันหมดอายุ</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <div class="input-group">
+                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"></button>
+                    </div>
+                    <label for="appDate">วันเกิด</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="channel">อายุ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">Force Age</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">Force Reason</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="channel">Client ID.</label>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'ลูกค้าใหม่'},{code:'N',name:'ลูกค้าเก่า'}]" name="preUw"
+                        label="ประเภทลูกค้า" [(ngModel)]="custType" [disabled]="true"></app-radio>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'1',name:'ชาย'}, {code:'2',name:'หญิง'}]" id="planCode" bindLabel="name"
+                        bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">เพศ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">สัญชาติ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">เชื้อชาติ</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ส่วนสูง(ซม.)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">น้ำหนัก(กก.)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="channel">สถานภาพ</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="appNo">ชื่อคู่สมรส</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">เบอร์โทรศัพท์มือถือ</label>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio
+                        [options]="[{code:'Y',name:'ไม่มี เบอร์โทรศัพท์'},{code:'N',name:'เบอร์โทรศัพท์ ไม่ชัดเจน'}]"
+                        name="preUw" label="หมายเหตุ"></app-radio>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="appNo">E-mail</label>
+                </div>
+                <div class="col-sm-3">
+                    <app-radio [options]="[{code:'Y',name:'ไม่มี E-mail'},{code:'N',name:'E-mail ไม่ชัดเจน'}]"
+                        name="preUw" label="หมายเหตุ"></app-radio>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">Tax consent</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="appNo">Tax ID</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">PB consent</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">Visa Type</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <app-radio [options]="[{code:'Y',name:'ใช่'},{code:'N',name:'ไม่ใช่'}]" name="preUw"
+                        label="K-Plus Consent" [(ngModel)]="custType"></app-radio>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control" readonly>
+                    <label for="appNo">รหัสพนักงาน</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="appNo">ชื่อบิดา</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="appNo">นามสกุล</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">สถานภาพ</label>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="appNo">ชื่อมารดา</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="appNo">นามสกุล</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select
+                        [items]="[{code:'1',name:'บัตรปชช./สูติบัตร/ทะเบียนบ้าน(1)'}, {code:'2',name:'บัตรข้าราชการ(2)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label for="appNo">สถานภาพ</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--ข้อมูลที่อยู่-->
+<div class="card mt-4">
+    <div class="card-body">
+        <span class="card-label">ข้อมูลที่อยู่</span>
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-outline-save" (click)="addEditAddress()">เพิ่มที่อยู่</button>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12">
+                <table #table class="w-100 dt-table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>ประเภท</th>
+                            <th>ที่อยู่</th>
+                            <th>โทร.</th>
+                            <th>ติดต่อ</th>
+                            <th>แก้ไข</th>
+                            <th>ลบ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="data-not-found" colspan="6">ไม่พบข้อมูล</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--ข้อมูลอาชีพ-->
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#occupationInfo"></div>
+        <span class="card-label">ข้อมูลอาชีพ</span>
+        <div class="collapse show" id="occupationInfo">
+            <div class="row mt-3">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="card-label">อาชีพหลัก</span>
+                            <div class="row mt-3">
+                                <div class="col-sm-9 floating-label">
+                                    <lk-occupation [(ngModel)]="occCode"></lk-occupation>
+                                    <label for="appDate">อาชีพ</label>
+                                </div>
+                                <div class="col-sm-3 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ขั้นอาชีพ</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 floating-label">
+                                    <ng-select
+                                        [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                                    </ng-select>
+                                    <label class="required" for="appNo">ตำแหน่ง</label>
+                                </div>
+                                <div class="col-sm-6 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ลักษณะงาน</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">รายได้ต่อปี(บาท)</label>
+                                </div>
+                                <div class="col-sm-6 floating-label">
+                                    <ng-select
+                                        [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                                    </ng-select>
+                                    <label class="required" for="appNo">ประเภทธุรกิจ</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-9 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ชื่อสถานที่ทำงาน</label>
+                                </div>
+                                <div class="col-sm-3 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ตั้งอยู่ที่(ลำดับ)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="card-label">อาชีพเสริม</span>
+                            <div class="row mt-3">
+                                <div class="col-sm-9 floating-label">
+                                    <lk-occupation [(ngModel)]="occCode"></lk-occupation>
+                                    <label for="appDate">อาชีพ</label>
+                                </div>
+                                <div class="col-sm-3 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ขั้นอาชีพ</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 floating-label">
+                                    <ng-select
+                                        [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                                    </ng-select>
+                                    <label class="required" for="appNo">ตำแหน่ง</label>
+                                </div>
+                                <div class="col-sm-6 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ลักษณะงาน</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">รายได้ต่อปี(บาท)</label>
+                                </div>
+                                <div class="col-sm-6 floating-label">
+                                    <ng-select
+                                        [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                                    </ng-select>
+                                    <label class="required" for="appNo">ประเภทธุรกิจ</label>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-9 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ชื่อสถานที่ทำงาน</label>
+                                </div>
+                                <div class="col-sm-3 floating-label">
+                                    <input type="text" id="channel" class="form-control">
+                                    <label for="channel">ตั้งอยู่ที่(ลำดับ)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-3 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">รายได้อื่นๆต่อปี(บาท)</label>
+                </div>
+                <div class="col-sm-3 floating-label">
+                    <ng-select [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                        id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                    </ng-select>
+                    <label class="required" for="appNo">ที่มาของรายได้</label>
+                </div>
+                <div class="col-sm-6 floating-label">
+                    <input type="text" id="channel" class="form-control">
+                    <label for="channel">ข้อมูลอาชีพเพิ่มเติม</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

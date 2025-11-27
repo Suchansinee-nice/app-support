@@ -1,0 +1,194 @@
+<div>
+  <label class="fw-bold fs-6">OSR App Support</label>
+</div>
+<hr />
+<!-- {{ request() | json }} -->
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-body">
+      <span class="card-label">เงื่อนไนการค้นหา</span>
+      <div class="row mt-3">
+        <div class="col floating-label">
+          <label for="refNo">Ref No.</label>
+          <input
+            [ngModel]="request().refNo"
+            (ngModelChange)="updateField('refNo', $event)"
+            type="text"
+            class="form-control"
+            id="refNo"
+            placeholder="ref No."
+            required
+          />
+        </div>
+        <div class="col floating-label">
+          <label for="transactionId">Transaction Id</label>
+          <input
+            [ngModel]="request().transactionId"
+            (ngModelChange)="updateField('transactionId', $event)"
+            type="text"
+            class="form-control"
+            id="transactionId"
+            placeholder="transaction Id"
+            required
+          />
+        </div>
+        <div class="col floating-label">
+          <label for="idCard">Id Card</label>
+          <input
+            [ngModel]="request().idCard"
+            (ngModelChange)="updateField('idCard', $event)"
+            type="text"
+            class="form-control"
+            id="idCard"
+            placeholder="Id Card"
+            required
+          />
+        </div>
+        <div class="col floating-label">
+          <label for="createdDate">Start Date</label>
+          <div class="input-group">
+            <input
+              [(ngModel)]="createdDate"
+              type="date"
+              (ngModelChange)="updateField('createdDate', $event)"
+              class="form-control"
+              name="dp"
+              id="datepicker"
+              required
+            />
+            <!-- <button
+              class="btn btn-outline-secondary bi bi-calendar3"
+              (click)="d.toggle()"
+              type="button"
+            ></button> -->
+          </div>
+          <div *ngIf="showError" class="error">
+            <strong>Created Date is required</strong>
+          </div>
+        </div>
+        <div class="col floating-label">
+          <label for="endedDate">End Date</label>
+          <div class="input-group">
+            <input
+              [(ngModel)]="endedDate"
+              type="date"
+              (ngModelChange)="updateField('endedDate', $event)"
+              class="form-control"
+              name="dp"
+              id="datepicker"
+              required
+            />
+          </div>
+          <div *ngIf="showError" class="error">
+            <strong>End Date is required</strong>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-6 d-flex justify-content-center gap-2">
+          <button type="button" class="btn btn-secondary" (click)="clear()">
+            Clear
+          </button>
+          <button
+            type="button"
+            class="btn btn-save"
+            (click)="search()"
+            [disabled]="loading"
+          >
+            <!-- <span *ngIf="loading">Load Data</span>
+            Search
+            <i *ngIf="loading" class="fas fa-spinner fa-spin"></i> -->
+            <span *ngIf="loading">
+              <i class="fas fa-spinner fa-spin"></i> Loading...
+            </span>
+
+            <!-- Normal button text -->
+            <span *ngIf="!loading">Search</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template [ngIf]="response().response?.length != 0 && !loading">
+    <div class="row mt-5">
+      <div class="col-sm-12">
+        <table class="w-100 dt-table">
+          <thead>
+            <tr class="table-header">
+              <th>No.</th>
+              <th>ChannelCode</th>
+              <th>Section</th>
+              <th>Transaction ID</th>
+              <th>Created Date</th>
+              <th>Created Time</th>
+              <th>Total time usage</th>
+              <th>Collector time usage</th>
+              <th>Service time usage</th>
+              <th>Rule Detail</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of response().response; index as i">
+            <tr>
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ item.channelCode }}</td>
+              <td class="text-center">{{ item.section }}</td>
+              <td class="text-center">{{ item.transactionId }}</td>
+              <td class="text-center">
+                {{ item.createdDate | date : "dd/MM/yyyy" }}
+              </td>
+              <td class="text-center">
+                {{ item.dateTime | date : "HH:mm:ss" }}
+              </td>
+              <td class="text-center">{{ item.timeUsage }}</td>
+              <td class="text-center">{{ item.collectorUsage }}</td>
+              <td class="text-center">{{ item.serviceUsage }}</td>
+              <ng-container>
+                <td class="log-button" *ngIf="item.rules.length > 0">
+                  <button
+                    type="button"
+                    class="btn btn-save"
+                    (click)="route(item)"
+                  >
+                    Log
+                  </button>
+                </td>
+                <td class="log-button" *ngIf="item.rules.length === 0">
+                  <strong>Pass</strong>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template [ngIf]="response().response?.length === 0">
+    <div class="row mt-5">
+      <div class="col-sm-12">
+        <table class="w-100 dt-table">
+          <thead>
+            <tr class="table-header">
+              <th>No.</th>
+              <th>ChannelCode</th>
+              <th>Section</th>
+              <th>Transaction ID</th>
+              <th>Created Date</th>
+              <th>Created Time</th>
+              <th>Total time usage</th>
+              <th>Collector time usage</th>
+              <th>Service time usage</th>
+              <th>Rule Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="data-not-found" colspan="15">Not Found Data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-template>
+</div>

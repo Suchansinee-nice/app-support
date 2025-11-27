@@ -1,0 +1,10 @@
+<div class="position-relative mtl-radio">
+    <label class="custom-label">{{label}}</label>
+    <div class="form-control d-flex align-items-center border rounded gap-2 d-flex flex-wrap" style="padding-bottom: 0.275rem;">
+      <div class="form-check" *ngFor="let item of options;">
+        <input class="form-check-input" type="radio" [id]="id+item.code" [name]="name" [value]="item.code" [checked]="modelValue === item.code" 
+        [attr.disabled]="disabled ? true : null" (change)="selectValue(item.code)">
+        <label class="form-check-label" [for]="id+item.code">{{item.name}}</label>
+      </div>
+    </div>
+  </div>

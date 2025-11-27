@@ -1,0 +1,124 @@
+<div class="d-flex align-items-center gap-2">
+    <i class="bi bi-house fs-6"></i><label class="fw-bold fs-6">EAP0001-SCR01 : สอบถามรายการใบคำขอประกันชีวิต</label>
+</div>
+<hr />
+<div class="card mt-4">
+    <div class="card-body">
+        <span class="card-label">เงื่อนไนการค้นหา</span>
+        <div class="row mt-3">
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="appNo" class="form-control">
+                <label for="appNo">ใบคำขอเลขที่</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="channel" class="form-control">
+                <label for="channel">ช่องทางใบคำขอ</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="firstName" class="form-control">
+                <label for="firstName">ชื่อผู้เอาประกัน</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="lastName" class="form-control">
+                <label for="lastName">นามสกุล</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="agentNo" class="form-control">
+                <label for="agentNo">รหัสตัวแทน</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <ng-select [items]="cars" id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                </ng-select>
+                <label for="planCode">แบบประกัน</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <div class="input-group">
+                    <input class="form-control" dateMask name="dp" [(ngModel)]="selectedDate" ngbDatepicker #d="ngbDatepicker"/>
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                        type="button"></button>
+                </div>
+                <label for="appDate">วันที่ลงนาม</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <div class="input-group">
+                    <input class="form-control" name="dp" ngbDatepicker #d1="ngbDatepicker"/>
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d1.toggle()"
+                        type="button"></button>
+                </div>
+                <label for="appDate">ถึง</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-3 floating-label">
+                <div class="input-group">
+                    <input class="form-control" name="dp" ngbDatepicker #d2="ngbDatepicker" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()"
+                        type="button"></button>
+                </div>
+                <label for="appDate">วันที่บันทึกคำขอ</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <div class="input-group">
+                    <input class="form-control" name="dp" ngbDatepicker #d3="ngbDatepicker" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d3.toggle()"
+                        type="button"></button>
+                </div>
+                <label for="appDate">ถึง</label>
+            </div>
+            <div class="col-sm-3 floating-label">
+                <input type="text" id="channel" class="form-control">
+                <label for="channel">ผู้บันทึก</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12 d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-save" (click)="searh()">ค้นหา</button>
+                <button type="button" class="btn btn-secondary" (click)="clear()">เคลียร์</button>
+                <button type="button" class="btn btn-outline-save" (click)="eap0001Tab()">ใบคำขอใหม่</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-sm-12">
+        <table datatable id="tbl1" [(ngModel)]="data" class="w-100 dt-table">
+            <!-- <table datatable [data]="data" class="w-100 dt-table"> -->
+            <thead>
+                <tr class="table-header">
+                    <th sorting='{"name": "eamAppNo", "type": "string"}'>เลขที่คำขอ</th>
+                    <th sorting='{"name": "eamAppDt", "type": "date"}'>วันที่ลงนาม</th>
+                    <th>ผู้เอาประกัน</th>
+                    <th>ผู้ชำระเบี้ย</th>
+                    <th>รายได้ต่อปี</th>
+                    <th>ชั้นอาชีพ</th>
+                    <th>แบบประกัน</th>
+                    <th>ตัวแทน</th>
+                    <th>ผู้บันทึก</th>
+                    <th>สถานะ</th>
+                    <th>แก้ไข</th>
+                    <th>ยกเลิก</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data;let i = index">
+                    <td>{{ item.eamAppNo }}2</td>
+                    <td class="center">{{ item.eamAppDt }}</td>
+                    <td>{{ item.custName }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

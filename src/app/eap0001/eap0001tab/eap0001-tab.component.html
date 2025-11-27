@@ -1,0 +1,132 @@
+<div class="d-flex align-items-center gap-2">
+    <i class="bi bi-house fs-6"></i><label class="fw-bold fs-6">EAP0001-SCR02 : คำขอประกันชีวิต (ข้อมูลใบคำขอ)</label>
+</div>
+<hr />  
+<div class="card mt-4">
+    <div class="card-body">
+        <span class="card-label">รายการ</span>
+        <div class="row">
+            <div class="col-sm-2">
+                <label class="d-flex justify-content-end">เลขที่รายการ :</label>
+            </div>
+            <div class="col">
+                <label>L256400030662</label>
+            </div>
+            <div class="col-sm-3">
+                <label class="d-flex justify-content-end">สถานะรายการ :</label>
+            </div>
+            <div class="col">
+                <label>00 - Incomplete</label>
+            </div>
+        </div>
+        <div class="row" *ngIf="selectedTab === 'scr02'">
+            <div class="col-sm-2">
+                <label class="d-flex justify-content-end">ผู้บันทึก :</label>
+            </div>
+            <div class="col">
+                <label>MTL803168</label>
+            </div>
+            <div class="col-sm-3">
+                <label class="d-flex justify-content-end">วันที่บันทึก :</label>
+            </div>
+            <div class="col">
+                <label>28/05/2564</label>
+            </div>
+        </div>
+        <div class="row" *ngIf="selectedTab === 'scr02'">
+            <div class="col-sm-2">
+                <label class="d-flex justify-content-end">ผู้แก้ไข :</label>
+            </div>
+            <div class="col">
+                <label>MTL803168</label>
+            </div>
+            <div class="col-sm-3">
+                <label class="d-flex justify-content-end">วันที่แก้ไข :</label>
+            </div>
+            <div class="col">
+                <label>28/05/2564</label>
+            </div>
+        </div>
+        <div class="row" *ngIf="selectedTab !== 'scr02'">
+            <div class="col-sm-2">
+                <label class="d-flex justify-content-end">เลขที่คำขอ :</label>
+            </div>
+            <div class="col">
+                <label>19099000044</label>
+            </div>
+            <div class="col-sm-3">
+                <label class="d-flex justify-content-end">ช่องทาง :</label>
+            </div>
+            <div class="col">
+                <label>19 - KBANK ทั้งหมด(19) รหัส 300003</label>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<!-- แถบ Tab -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr02'" (click)="selectTab('scr02')">ข้อมูลใบคำขอ</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr03'" (click)="selectTab('scr03')">ผู้เอาประกัน</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr04'"
+            (click)="selectTab('scr04')">ผู้ชำระเบี้ย/นิติบุคคล</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr05'"
+            (click)="selectTab('scr05')">แบบประกัน/การชำระเบี้ย</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr06'" (click)="selectTab('scr06')">ผู้รับประโยชน์</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr07'" (click)="selectTab('scr07')">คำถามสุขภาพ</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr08'" (click)="selectTab('scr08')">คำถาม FATCA/CRS</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" [class.active]="selectedTab === 'scr09'" (click)="selectTab('scr09')">ลูกค้าเปราะบาง</a>
+    </li>
+</ul>
+
+<!-- เนื้อหา Tab -->
+<div class="tab-content">
+    <div class="tab-pane" [class.active]="selectedTab === 'scr02'">
+       <app-eap0001scr02></app-eap0001scr02>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr03'">
+        <app-eap0001scr03></app-eap0001scr03>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr04'">
+        <app-eap0001scr04></app-eap0001scr04>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr05'">
+        <app-eap0001scr05></app-eap0001scr05>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr06'">
+        <app-eap0001scr06></app-eap0001scr06>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr07'">
+        <app-eap0001scr07></app-eap0001scr07>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr08'">
+        <app-eap0001scr08></app-eap0001scr08>
+    </div>
+    <div class="tab-pane" [class.active]="selectedTab === 'scr09'">
+        <app-eap0001scr09></app-eap0001scr09>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-12 d-flex justify-content-end gap-2">
+        <button type="button" class="btn btn-save">บันทึก</button>
+        <button type="button" class="btn btn-success">สมบูรณ์</button>
+        <button type="button" class="btn btn-outline-save" (click)="back()">ย้อนกลับ</button>
+        
+    </div>
+</div>

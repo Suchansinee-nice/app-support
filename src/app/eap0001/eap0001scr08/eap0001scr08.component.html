@@ -1,0 +1,282 @@
+<!--คำถาม กฏหมาย FATCA ผู้เอาประกัน-->
+<div class="card mt-4">
+    <div class="card-body ">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#fatcaInfo"></div>
+        <label class="card-label">คำถาม กฏหมาย FATCA ผู้เอาประกัน</label>
+        <div class="collapse show" id="fatcaInfo">
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ก. ท่านมีสัญชาติ ประเทศที่เกิด
+                            ที่เกี่ยวข้องกับประเทศสหรัฐอเมริกาหรือไม่
+                        </label>
+                        <div class="row mt-2">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aNo" name="rdoQtA">
+                                        <label class="form-check-label" for="aNo">ไม่มี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aYes" name="rdoQtA">
+                                        <label class="form-check-label" for="aYes">มี โปรดระบุ</label>
+                                    </div>
+                                    <app-checkbox id="chkQtA1" name="chkA1" label="ถือสัญชาติอเมริกัน"
+                                        value="Y"></app-checkbox>
+                                    <app-checkbox id="chkQtA2" name="chkA2" label="เกิดในประเทศสหรัฐอเมริกา"
+                                        value="Y"></app-checkbox>
+                                    <app-checkbox id="chkQtA3" name="chkA3"
+                                        label="ถือสัญชาติอเมริกัน และเกิดในประเทศสหรัฐอเมริกา" value="Y"></app-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ข.
+                            ท่านเป็นหรือเคยเป็นผู้ถือบัตรประจำตัวผู้มีถิ่นที่อยู่ถาวรอย่างถูกกฏหมายในประเทศสหรัฐอเมริกา
+                        </label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bNo" name="rdoQtB">
+                                        <label class="form-check-label" for="bNo">ไม่เป็น</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bYes" name="rdoQtB">
+                                        <label class="form-check-label" for="bYes">เป็น</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bBoth" name="rdoQtB">
+                                        <label class="form-check-label" for="bBoth">เคยเป็นและสิ้นผลบังคับ</label>
+                                    </div>
+                                    <input class="form-control mb-2" style="width: 200px;"
+                                        placeholder="เลขที่ Green Card">
+                                    <div class="input-group mb-2" style="width: 150px;">
+                                        <input class="form-control" name="dp" ngbDatepicker #d="ngbDatepicker"
+                                            placeholder="วันหมดอายุ" />
+                                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                                            type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ค. ท่านมีหน้าที่เสียภาษีให้แก่กรมสรรพากรสหรัฐอเมริกาใช่หรือไม่
+                        </label>
+                        <div class="row mt-2">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aNo" name="rdoQtA">
+                                        <label class="form-check-label" for="aNo">ไม่มี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aYes" name="rdoQtA">
+                                        <label class="form-check-label" for="aYes">มี</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ง.
+                            ท่านมีสถานะเป็นผู้ที่มีถิ่นที่อยู่ในประเทศสหรัฐอเมริกาเพื่อวัตถุประสงค์ในการเก็บภาษีอากรของ
+                            ประเทศสหรัฐอเมริกา ใช่หรือไม่ (เช่น มีถิ่นที่อยู่ ในประเทศสหรัฐอเมริกา อย่างน้อย 183 วัน
+                            ในปีปฏิทินที่ผ่านมา)
+                        </label>
+                        <div class="row mt-2">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aNo" name="rdoQtA">
+                                        <label class="form-check-label" for="aNo">ไม่มี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="aYes" name="rdoQtA">
+                                        <label class="form-check-label" for="aYes">มี</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            จ. ผู้เอาประกันให้ที่อยู่ในประเทศสหรัฐอเมริกา ไว้หรือไม่
+                        </label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bNo" name="rdoQtB">
+                                        <label class="form-check-label" for="bNo">ไม่ให้</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bYes" name="rdoQtB">
+                                        <label class="form-check-label" for="bYes">ให้</label>
+                                    </div>
+                                    <input class="form-control mb-2" style="width: 200px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ฉ. ผู้เอาประกันให้หมายเลขโทรศัพท์ในประเทศสหรัฐอเมริกา ไว้หรือไม่
+                        </label>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bNo" name="rdoQtB">
+                                        <label class="form-check-label" for="bNo">ไม่ให้</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="bYes" name="rdoQtB">
+                                        <label class="form-check-label" for="bYes">ให้</label>
+                                    </div>
+                                    <input class="form-control mb-2" style="width: 200px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--คำถาม Common Reporting Standard (CRS) ผู้เอาประกัน-->
+<div class="card mt-4">
+    <div class="card-body ">
+        <div class="card-toggle" data-bs-toggle="collapse" data-bs-target="#crsInfo"></div>
+        <label class="card-label">คำถาม Common Reporting Standard (CRS) ผู้เอาประกัน</label>
+        <div class="collapse show" id="crsInfo">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="question-card">
+                        <label class="subject">
+                            ช. ท่านเป็นผู้มีถิ่นที่อยู่ทางภาษีในประเทศอื่น นอกเหนือจากประเทศไทยหรือสหรัฐอเมริกา
+                            ใช่หรือไม่
+                        </label>
+                        <div class="row mt-1">
+                            <div class="col-sm-12">
+                                <div class="d-flex align-items-center gap-2 d-flex flex-wrap ms-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" [(ngModel)]="crsFlg" id="rdoCrsY"
+                                            name="rdoCrs" value="Y">
+                                        <label class="form-check-label" for="rdoCrsY">ใช่</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" [(ngModel)]="crsFlg" id="rdoCrsN"
+                                            name="rdoCrs" value="N">
+                                        <label class="form-check-label" for="rdoCrsN">ไม่ใช่</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" [(ngModel)]="crsFlg" id="rdoCrsP"
+                                            name="rdoCrs" value="P">
+                                        <label class="form-check-label"
+                                            for="rdoCrsP">ไม่มีเอกสาร/เอกสารไม่สมบูรณ์</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="crsFlg === 'Y'">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--ช.1 สถานที่เกิด-->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <span class="card-label">ช.1 สถานที่เกิด</span>
+                                <div class="row">
+                                    <div class="col-sm-4 floating-label">
+                                        <ng-select
+                                            [items]="[{code:'147',name:'พ.ต.อ.(พิเศษ)หญิง(568)'}, {code:'157',name:'MADAM(157)'}]"
+                                            id="planCode" bindLabel="name" bindValue="code" class="form-control">
+                                        </ng-select>
+                                        <label class="required" for="appNo">ประเทศ</label>
+                                    </div>
+                                    <div class="col-sm-4 floating-label">
+                                        <input type="text" id="channel" class="form-control">
+                                        <label for="channel">เมือง</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--ช.2 บันทึกวัตถุประสงค์-->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <span class="card-label">ช.2 บันทึกวัตถุประสงค์</span>
+                                <div class="row">
+                                    <div class="col-sm-12 d-flex align-items-center justify-content-end">
+                                        <button type="button" class="btn btn-outline-save">เพิ่มวัตถุประสงค์</button>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-12">
+                                        <table #table class="w-100 dt-table">
+                                            <thead>
+                                                <tr class="table-header">
+                                                    <th>ประเทศถิ่นที่อยู่ทางภาษี</th>
+                                                    <th>หมายเลขประจําตัวผู้เสียภาษีในต่างประเทศ</th>
+                                                    <th>หากไม่มีหมายเลขประจําตัวผู้เสียภาษีในต่างประเทศ<br />โปรดระบุเหตุผล
+                                                        (A) หรือ (B) หรือ (C)</th>
+                                                    <th>หากไม่มีหมายเลขประจําตัวผู้เสียภาษีในต่างประเทศ<br />โปรดระบุเหตุผล
+                                                        (A) หรือ (B) หรือ (C)</th>
+                                                    <th>แก้ไข</th>
+                                                    <th>ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="data-not-found" colspan="6">ไม่พบข้อมูล</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

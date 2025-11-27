@@ -1,0 +1,80 @@
+<div class="d-flex">
+  <!-- Sidebar (สามารถซ่อนได้) -->
+  <div class="sidebar bg-white p-3" [class.hidden]="isSidebarHidden">
+    <div>
+      <h5 class="text-center">
+        <img src="assets/images/mtl_logo.png" width="80" height="50" />
+      </h5>
+      <ul class="nav flex-column">
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link text-menu"
+            href="#"
+            [class.active]="router.url == '/eap0001'"
+            routerLink="/eap0001"
+            >บันทึก/แก้ไขใบคำขอประกันชีวิต</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-menu"
+            href="#"
+            [class.active]="router.url == '/eap0003'"
+            routerLink="/eap0003"
+            >ตรวจสอบใบคำขอประกันชีวิต</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a
+            class="nav-link text-menu"
+            href="#"
+            [class.active]="router.url == '/osr-appsupport'"
+            routerLink="/osr-appsupport"
+            >OSR App support</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      style="position: absolute; bottom: 20px; color: var(--coolGrey-700-color)"
+    >
+      <!-- <div>IP: 10.31.40.136</div> -->
+      <div>Date-time: {{ currentDateTime }}</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-grow-1" [class.expanded]="isSidebarHidden">
+    <!-- Top Navbar -->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <button class="btn btn-save" (click)="toggleSidebar()">☰</button>
+        <div class="d-flex">
+          <div style="font-size: 12px" class="me-3">
+            <!-- <div><label class="text-white">กิXXXX หอXXXX</label></div>
+            <div><label class="text-white">MTL803168 IT</label></div> -->
+          </div>
+          <!-- <button class="btn btn-light">ออกจากระบบ</button> -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="p-4 mtl-container">
+      <div id="divScrollTop" *ngIf="showScrollTop">
+        <i
+          @fadeInOut
+          class="bi bi-arrow-up-square-fill fs-2"
+          (click)="scrollToTop()"
+        ></i>
+      </div>
+      <div id="divScrollBottom" *ngIf="showScrollBottom">
+        <i
+          @fadeInOut
+          class="bi bi-arrow-down-square-fill fs-2"
+          (click)="scrollToBottom()"
+        ></i>
+      </div>
+      <router-outlet />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.pagination {
+  font-size: var(--primary-font-size);
+}
+
+ng-select {
+  border: 1px solid var(--coolGrey-400-color);
+  border-radius: 4px;
+  font-size: var(--secondary-font-size);
+
+  .ng-select-container {
+    height: 1.5rem !important;
+    min-height: 0 !important;
+  }
+}

@@ -1,0 +1,96 @@
+<div class="modal-header">
+  <h6 class="modal-title">เพิ่มข้อมูลที่อยู่</h6>
+  <button type="button" class="btn-close fs-7" (click)="close()"></button>
+</div>
+<div class="modal-body">
+  <div class="row mt-3">
+    <div class="col-sm-4 floating-label">
+      <ng-select [items]="[{code:'147',name:'DR.(147)'}, {code:'157',name:'MADAM(157)'}]" id="planCode" bindLabel="name"
+        bindValue="code" class="form-control">
+      </ng-select>
+      <label class="required" for="appNo">ประเภทที่อยู่</label>
+    </div>
+    <div class="col-sm-8 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">หมู่บ้าน/อาคาร</label>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-2 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">เลขที่</label>
+    </div>
+    <div class="col-sm-2 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">ชั้นที่</label>
+    </div>
+    <div class="col-sm-2 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">หมู่ที่</label>
+    </div>
+    <div class="col-sm-2 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">ตรอก/ซอย</label>
+    </div>
+    <div class="col-sm-4 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">ถนน</label>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-4 floating-label">
+      <ng-select [items]="[{code:'147',name:'DR.(147)'}, {code:'157',name:'MADAM(157)'}]" id="planCode" bindLabel="name"
+        bindValue="code" class="form-control">
+      </ng-select>
+      <label class="required" for="appNo">ประเทศ</label>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-3 floating-label">
+      <ng-select [items]="[{code:'147',name:'DR.(147)'}, {code:'157',name:'MADAM(157)'}]" id="planCode" bindLabel="name"
+        bindValue="code" class="form-control">
+      </ng-select>
+      <label class="required" for="appNo">จังหวัด</label>
+    </div>
+    <div class="col-sm-3 floating-label">
+      <ng-select [items]="[{code:'147',name:'DR.(147)'}, {code:'157',name:'MADAM(157)'}]" id="planCode" bindLabel="name"
+        bindValue="code" class="form-control">
+      </ng-select>
+      <label class="required" for="appNo">อำเภอ/เขต</label>
+    </div>
+    <div class="col-sm-3 floating-label">
+      <ng-select [items]="[{code:'147',name:'DR.(147)'}, {code:'157',name:'MADAM(157)'}]" id="planCode" bindLabel="name"
+        bindValue="code" class="form-control">
+      </ng-select>
+      <label class="required" for="appNo">ตำบล/แขวง</label>
+    </div>
+    <div class="col-sm-3 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">รหัสไปรษณีย์</label>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-3 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">เบอร์โทรศัพท์พื้นฐาน</label>
+    </div>
+    <div class="col-sm-6">
+      <app-radio [options]="[{code:'Y',name:'ไม่มี เบอร์โทรศัพท์'},{code:'N',name:'เบอร์โทรศัพท์ ไม่ชัดเจน'}]"
+        name="preUw" label="หมายเหตุ"></app-radio>
+    </div>
+    <div class="col-sm-3 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">เบอร์โทรศัพท์ต่างประเทศ</label>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-12 floating-label">
+      <input type="text" id="lastName" class="form-control">
+      <label for="lastName">ที่อยู่สำหรับ AS400</label>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-save" (click)="save()">บันทึก</button>
+  <button class="btn btn-secondary" (click)="close()">ยกเลิก</button>
+</div>

@@ -1,0 +1,212 @@
+<div>
+  <label class="fw-bold fs-6">OSR App Support</label>
+</div>
+<hr />
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-body">
+      <div>
+        <label
+          ><strong>Transaction ID : </strong>{{ items?.transactionId }}</label
+        >
+      </div>
+      <div>
+        <label
+          ><strong>Created Date : </strong>
+          {{ items?.createdDate | date : "dd/MM/yyyy" }}</label
+        >
+      </div>
+      <div>
+        <label
+          ><strong>Created Time : </strong>
+          {{ items?.dateTime | date : "HH:mm:ss" }}</label
+        >
+      </div>
+      <div>
+        <label><strong>Total time :</strong> {{ items?.timeUsage }}</label>
+      </div>
+      <div>
+        <label
+          ><strong> Collector time :</strong>{{ items?.collectorUsage }}</label
+        >
+      </div>
+      <div>
+        <label
+          ><strong>Service time : </strong> {{ items?.serviceUsage }}</label
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  [ngIf]="items?.collectors !== null && items?.collectors?.length !== 0"
+>
+  <div class="row mt-5"></div>
+  <div>
+    <label class="fw-bold fs-6">Data Collectors</label>
+  </div>
+  <hr />
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div
+      class="accordion-item"
+      *ngFor="let item of items?.collectors; let i = index"
+    >
+      <h2 class="accordion-header" id="flush-heading-{{ i }}">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#flush-collapse' + i"
+          aria-expanded="false"
+          [attr.aria-controls]="'flush-collapse' + i"
+        >
+          {{ item.dataCollector }}
+        </button>
+      </h2>
+      <div
+        id="flush-collapse{{ i }}"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionFlushExample"
+      >
+        <div class="accordion-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">service</th>
+                <th scope="col">time</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let itemService of item.services; let i = index">
+              <tr>
+                <td scope="row">{{ itemService.nameService }}</td>
+                <td>{{ itemService.time }} ms.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template [ngIf]="items?.collectors == null">
+  <div class="row mt-5"></div>
+  <div>
+    <label class="fw-bold fs-6">Data Collectors</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="data-not-found" colspan="15">Not Found Data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="true">
+  <div class="row mt-5"></div>
+  <div>
+    <label class="fw-bold fs-6">Rules</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>MessageTH</th>
+            <th>MessageCode</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items?.rules; index as i">
+          <tr>
+            <td class="text-center">{{ i + 1 }}</td>
+            <ng-container *ngFor="let part of ruleName; index as j">
+              <td class="text-center" *ngIf="i === j">
+                {{ part }}
+              </td>
+            </ng-container>
+            <td class="message">{{ item.messageTH }}</td>
+            <td class="text-center">{{ item.code }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-5"></div>
+</ng-template>
+
+<ng-template [ngIf]="items?.documents?.length !== 0">
+  <div>
+    <label class="fw-bold fs-6">Documents</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items?.documents; index as i">
+          <tr>
+            <td class="text-center">{{ i + 1 }}</td>
+            <td class="text-center">{{ item.rule }}</td>
+            <td class="text-center">{{ item.descTH }}</td>
+            <td class="text-center">{{ item.type }}</td>
+            <td class="text-center">{{ item.code }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="items?.documents?.length === 0">
+  <div>
+    <label class="fw-bold fs-6">Documents</label>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-sm-12">
+      <table class="w-100 dt-table">
+        <thead>
+          <tr class="table-header">
+            <th>No.</th>
+            <th>Rules</th>
+            <th>Desciption</th>
+            <th>Type</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="data-not-found" colspan="15">Not Found Data</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
+
+<div class="row mt-5"></div>
+<div class="text-center">
+  <button type="button" class="btn btn-save" (click)="goHome()">Back</button>
+</div>

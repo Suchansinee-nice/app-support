@@ -1,0 +1,27 @@
+.btn {
+    font-size: var(--primary-font-size);
+}
+
+.btn.btn-save {
+    color: #fff;
+    background-color: var(--primary-500-color);
+    border-color: var(--primary-500-color);
+
+    &:hover {
+        color: #fff;
+        background-color: var(--primary-600-color);
+        border-color: var(--primary-600-color);
+    }
+}
+
+.btn.btn-outline-save {
+    color: var(--primary-500-color);
+    background-color: #fff;
+    border-color: var(--primary-500-color);
+
+    &:hover {
+        color: #fff;
+        background-color: var(--primary-500-color);
+        border-color: var(--primary-500-color);
+    }
+}

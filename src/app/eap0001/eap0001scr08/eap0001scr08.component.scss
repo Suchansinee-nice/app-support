@@ -1,0 +1,12 @@
+.card-body.question {
+    padding-bottom: unset;
+}
+
+.question-card {
+    border: 1px solid var(--primary-200-color);
+    padding: 5px;
+    border-radius: var(--bs-card-border-radius);
+    label.subject {
+        font-weight: bold;
+    }
+}

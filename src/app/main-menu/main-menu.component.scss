@@ -1,0 +1,60 @@
+.sidebar {
+  background-color: var(--primary-100-color);
+  font-size: var(--primary-font-size);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 1px 0px 0px #e0e0e0, 10px 0px 48px -4px rgba(16, 24, 40, .05), 8px 0px 24px -4px rgba(16, 24, 40, .03);
+  z-index: 1003;
+}
+
+.hidden {
+  transform: translateX(-100%);
+}
+
+.flex-grow-1 {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.expanded {
+  margin-left: 0;
+}
+
+nav.navbar {
+    background-color: var(--primary-500-color);
+}
+
+.text-menu {
+    color: var(--coolGrey-700-color) !important;
+    border-radius: 12px;
+
+    &:hover, &.active {
+        background-color: var(--primary-50-color) !important;
+        color: var(--primary-500-color) !important;
+    }
+}
+
+#divScrollTop, #divScrollBottom {
+  position: fixed;
+  right: 10px;
+  z-index: 1004;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  // bottom: 30px;
+  transform: translateY(-50%);
+  color: var(--primary-300-color);
+  opacity: 0.6;
+}
+
+#divScrollTop {
+  bottom: 50px;
+}
+
+#divScrollBottom {
+  bottom: 10px;
+}
